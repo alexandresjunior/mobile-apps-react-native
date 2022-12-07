@@ -37,3 +37,6 @@ Ao longo do curso serão abordados os itens acima no decorrer do desenvolvimento
 * [React Native - Documentação Oficial](https://reactnative.dev/)
 * [Expo - Documentação Oficial](https://docs.expo.dev/)
 * [Box Shadow Generator](https://ethercreative.github.io/react-native-shadow-generator/)
+* [React Native Vector Icons Directory](https://oblador.github.io/react-native-vector-icons/)
+* [Customizable Icons for React Native](https://github.com/oblador/react-native-vector-icons)
+* [Ionicons](https://ionic.io/ionicons)
