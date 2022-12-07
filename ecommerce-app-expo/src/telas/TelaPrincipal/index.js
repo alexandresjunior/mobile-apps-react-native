@@ -9,13 +9,15 @@ const TelaPrincipal = () => {
 
             <Text style={estilos.titulo}>Todas as suas compras num só app!</Text>
             <Text style={estilos.subtitulo}>Venda seus produtos da maneira mais inteligente e rápida para obter dinheiro imediato e uma consciência mais limpa.</Text>
-            
-            <TouchableOpacity style={estilos.botaoLogIn} onPress={() => { }}>
-                <Text style={estilos.textoBotaoLogIn}>Log In</Text>
-            </TouchableOpacity>
-            <TouchableOpacity style={estilos.botaoSignUp} onPress={() => { }}>
-                <Text style={estilos.textoBotaoSignUp}>Sign Up</Text>
-            </TouchableOpacity>
+
+            <View style={estilos.botoes}>
+                <TouchableOpacity style={estilos.botaoLogIn} onPress={() => { }}>
+                    <Text style={estilos.textoBotaoLogIn}>Log In</Text>
+                </TouchableOpacity>
+                <TouchableOpacity style={estilos.botaoSignUp} onPress={() => { }}>
+                    <Text style={estilos.textoBotaoSignUp}>Sign Up</Text>
+                </TouchableOpacity>
+            </View>
         </View>
     )
 }
@@ -36,13 +38,19 @@ const estilos = StyleSheet.create({
         marginTop: 0,
         fontSize: 16
     },
+    botoes: {
+        marginTop: 25,
+        flexDirection: "row",
+        justifyContent: 'space-between'
+    },
     botaoLogIn: {
         backgroundColor: "#FF7A00",
-        margin: 25,
         padding: 10,
         borderRadius: 5,
         borderWidth: 1,
-        borderColor: "#FF7A00"
+        borderColor: "#FF7A00",
+        width: 170,
+        marginStart: 25
     },
     textoBotaoLogIn: {
         textAlign: "center",
@@ -51,11 +59,12 @@ const estilos = StyleSheet.create({
     },
     botaoSignUp: {
         backgroundColor: "#FFFFFF",
-        margin: 25,
         padding: 10,
         borderRadius: 5,
         borderWidth: 1,
-        borderColor: "#FF7A00"
+        borderColor: "#FF7A00",
+        width: 170,
+        marginEnd: 25
     },
     textoBotaoSignUp: {
         textAlign: "center",
