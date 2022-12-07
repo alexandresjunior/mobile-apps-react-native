@@ -35,3 +35,5 @@ Ao longo do curso serão abordados os itens acima no decorrer do desenvolvimento
 
 * [Protótipo no Figma](https://www.figma.com/file/IOnoHzBvpRZ3XZZHSVsyaa/E-commerce-App-(Treina-Recife)?node-id=0%3A1&t=ksURpvTYw5WhmHB9-1)
 * [React Native - Documentação Oficial](https://reactnative.dev/)
+* [Expo - Documentação Oficial](https://docs.expo.dev/)
+* [Box Shadow Generator](https://ethercreative.github.io/react-native-shadow-generator/)
