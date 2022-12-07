@@ -1,3 +1,37 @@
-![Java Web com Spring Boot - Logo](https://user-images.githubusercontent.com/83607914/201647541-d4b6745f-58b2-469a-85d8-082db5458371.gif)
+![Mobile Apps com React Native - Logo](https://user-images.githubusercontent.com/83607914/201647541-d4b6745f-58b2-469a-85d8-082db5458371.gif)
 
 # Bem-vindos!
+
+O React Native é um framework JavaScript que combina as melhores partes do desenvolvimento com React, trazendo a possibilidade de criar aplicações mobile híbridas, isto é, aplicações mobile tanto para Android quanto para iOS. Entre as grandes vantagens de se utilizar o React Native para desenvolver seus apps, é que com uma única tecnologia você poderá desenvolver aplicativos multiplataforma, otimizando o processo de desenvolvimento.
+
+Ao finalizar este curso, você será capaz de desenvolver aplicativos para Android e iOS do zero com React Native, criar seus próprios componentes, aplicar estilos com conceitos semelhantes ao CSS, aprender a utilizar hooks, utilizar navegação para alternar entre as telas, conectar a aplicação a uma API para armazenar, editar e deletar dados, trabalhar com dados e utilizar o armazenamento local, e muito mais!
+
+## Pré-requisitos
+
+* Lógica de programação
+
+## Ementa
+
+1. JavaScript Básico
+2. Introdução ao React Native com Expo: componentes nativos e customizados, listas otimizadas e Google Fonts
+3. Hooks: Estados e Ciclos de Vida
+4. Menu e Navegação entre Telas
+5. Armazenamento Local: AsyncStorage e SQLite
+6. Integração com API externas: Web API
+
+## Metodologia
+
+Ao longo do curso serão abordados os itens acima no decorrer do desenvolvimento de um projeto de aplicativo móvel (e-commerce).
+
+## Ferramentas Necessárias
+
+* Node.js 14+
+* Visual Studio Code
+* Aplicativo Expo Go no celular Android ou iOS
+* Android Studio (Emulador)
+
+
+## Links Úteis
+
+* [Protótipo no Figma](https://www.figma.com/file/IOnoHzBvpRZ3XZZHSVsyaa/E-commerce-App-(Treina-Recife)?node-id=0%3A1&t=ksURpvTYw5WhmHB9-1)
+* [React Native - Documentação Oficial](https://reactnative.dev/)
