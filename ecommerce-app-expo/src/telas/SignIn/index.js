@@ -2,25 +2,39 @@ import React from "react";
 import { Image, StyleSheet, View, Text, TouchableOpacity, TextInput } from "react-native";
 import MaterialCommunityIcon from "react-native-vector-icons/MaterialCommunityIcons";
 import Checkbox from 'expo-checkbox';
+import NavBar from "./components/NavBar";
 
 const SignIn = () => {
     return (
         <>
             <View style={estilos.cabecalho}></View>
-            {/* <NavBar /> */}
+
+            <NavBar />
+
             <View style={estilos.tela}>
-                <View>
-                    <Text style={estilos.titulo}>Sign In</Text>
-                    <View style={{ flexDirection: "row" }}>
-                        <Text>Bem-vindo! Não possui uma conta?</Text>
-                        <TouchableOpacity onPress={() => { }}>
-                            <Text style={estilos.linkSignUp}> Sign Up</Text>
-                        </TouchableOpacity>
-                    </View>
+                <Text style={estilos.titulo}>Sign In</Text>
+                <View style={{ flexDirection: "row" }}>
+                    <Text>Bem-vindo! Não possui uma conta?</Text>
+                    <TouchableOpacity onPress={() => { }}>
+                        <Text style={estilos.linkSignUp}>Sign Up</Text>
+                    </TouchableOpacity>
                 </View>
 
-                <TextInput style={estilos.input} placeholder="E-mail" keyboardType="email" onChangeText={() => { }} defaultValue={""} />
-                <TextInput style={estilos.input} placeholder="Senha" keyboardType="password" onChangeText={() => { }} defaultValue={""} />
+                <TextInput
+                    style={estilos.input}
+                    placeholder="E-mail"
+                    keyboardType="email"
+                    onChangeText={() => { }}
+                    defaultValue={""}
+                />
+
+                <TextInput
+                    style={estilos.input}
+                    placeholder="Senha"
+                    keyboardType="password"
+                    onChangeText={() => { }}
+                    defaultValue={""}
+                />
 
                 <TouchableOpacity style={estilos.botaoLogIn} onPress={() => { }}>
                     <Text style={estilos.textoBotaoLogIn}>Log In</Text>
@@ -33,7 +47,8 @@ const SignIn = () => {
                         onValueChange={() => { }}
                         color={true ? "#FF7A00" : undefined}
                     />
-                    <View style={{ flex: 1, flexDirection: "row", justifyContent: "space-between" }}>
+
+                    <View style={{ flex: 1, flexDirection: "row", justifyContent: "space-between", alignItems: "center" }}>
                         <Text style={{ marginStart: 10 }}>Mantenha-me conectado</Text>
 
                         <TouchableOpacity style={{}} onPress={() => { }}>
@@ -42,23 +57,16 @@ const SignIn = () => {
                     </View>
                 </View>
 
-                <View style={{ marginTop: 20 }}>
-                    <Text style={{ color: "#FF7A00", textAlign: "center" }}>OR</Text>
-                </View>
-
+                <Text style={estilos.separador}>OR</Text>
 
                 <TouchableOpacity style={estilos.botaoSignUp} onPress={() => { }}>
-                    <View style={{ flexDirection: "row", justifyContent: "center" }}>
-                        <MaterialCommunityIcon name="google" size={20} color="#000000" />
-                        <Text style={estilos.textoBotaoSignUp}>Entrar com Gmail</Text>
-                    </View>
+                    <MaterialCommunityIcon name="google" size={20} color="#000000" />
+                    <Text style={estilos.textoBotaoSignUp}>Entrar com Gmail</Text>
                 </TouchableOpacity>
 
                 <TouchableOpacity style={estilos.botaoSignUp} onPress={() => { }}>
-                    <View style={{ flexDirection: "row", justifyContent: "center" }}>
-                        <MaterialCommunityIcon name="apple" size={20} color="#000000" />
-                        <Text style={estilos.textoBotaoSignUp}>Entrar com Apple ID</Text>
-                    </View>
+                    <MaterialCommunityIcon name="apple" size={20} color="#000000" />
+                    <Text style={estilos.textoBotaoSignUp}>Entrar com Apple ID</Text>
                 </TouchableOpacity>
             </View>
         </>
@@ -72,12 +80,18 @@ const estilos = StyleSheet.create({
         margin: 25
     },
     cabecalho: {
-        flex: 1, 
         height: 200,
         backgroundColor: "#FF7A00"
     },
+    separador: {
+        color: "#FF7A00",
+        textAlign: "center",
+        marginTop: 20,
+        marginBottom: 10
+    },
     linkSignUp: {
         color: "#FF7A00",
+        paddingStart: 5
     },
     titulo: {
         marginTop: 5,
@@ -115,7 +129,10 @@ const estilos = StyleSheet.create({
         borderWidth: 1,
         borderColor: "#D9D9D9",
         width: "100%",
-        marginTop: 20,
+        marginTop: 10,
+        flexDirection: "row",
+        justifyContent: "center",
+        alignItems: "center"
     },
     textoBotaoSignUp: {
         textAlign: "center",
