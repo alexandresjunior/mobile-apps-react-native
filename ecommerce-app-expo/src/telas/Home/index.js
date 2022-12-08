@@ -1,5 +1,5 @@
 import React from "react";
-import { StyleSheet, View } from "react-native";
+import { SafeAreaView, StyleSheet, View } from "react-native";
 import celular1 from "../../../assets/celular_1.png";
 import imgOferta1 from "../../../assets/oferta_1.png";
 import imgOferta2 from "../../../assets/oferta_2.png";
@@ -11,7 +11,7 @@ import SectionHeader from "../../componentes/headers/SectionHeader";
 
 const Home = () => {
     return (
-        <View style={estilos.tela}>
+        <SafeAreaView style={estilos.tela}>
             <Header />
 
             <HorizontalCard imagem={celular1} />
@@ -23,7 +23,7 @@ const Home = () => {
             </View>
 
             <PromoCard />
-        </View>
+        </SafeAreaView>
     )
 }
 

@@ -1,5 +1,5 @@
 import React from "react";
-import { Image, StyleSheet, View, Text, TouchableOpacity, TextInput } from "react-native";
+import { Image, StyleSheet, View, Text, TouchableOpacity, SafeAreaView } from "react-native";
 import Carousel from "./componentes/Carousel";
 import modelo1 from "../../../assets/modelo_1.png";
 import modelo2 from "../../../assets/modelo_2.png";
@@ -7,9 +7,13 @@ import modelo3 from "../../../assets/modelo_3.png";
 import modelo4 from "../../../assets/modelo_4.png";
 import AntDesignIcon from "react-native-vector-icons/AntDesign";
 
-const Produto = () => {
+const Produto = ({ navigation }) => {
+    const aoClicarEmAdicionarAoCarrinho = () => {
+        navigation.navigate("Carrinho", navigation);
+    }
+
     return (
-        <>
+        <SafeAreaView>
             <Carousel />
             <View style={estilos.tela}>
                 <View style={estilos.secao}>
@@ -74,12 +78,12 @@ const Produto = () => {
                         </View>
                     </View>
 
-                    <TouchableOpacity style={estilos.botaoAddCarrinho} onPress={() => { }}>
+                    <TouchableOpacity style={estilos.botaoAddCarrinho} onPress={() => aoClicarEmAdicionarAoCarrinho()}>
                         <Text style={estilos.textoBotaoAddCarrinho}>Adicionar ao Carrinho</Text>
                     </TouchableOpacity>
                 </View>
             </View>
-        </>
+        </SafeAreaView>
     )
 }
 

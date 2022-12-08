@@ -1,5 +1,5 @@
 import React from "react";
-import { StyleSheet, View } from "react-native";
+import { SafeAreaView, StyleSheet, View } from "react-native";
 import cartaoCompras1 from "../../../assets/cartao_compras_icon_1.png";
 import cartaoCompras2 from "../../../assets/cartao_compras_icon_2.png";
 import cartaoCompras3 from "../../../assets/cartao_compras_icon_3.png";
@@ -9,10 +9,13 @@ import MiniCard from "../../componentes/cards/MiniCard";
 import ShopCard from "../../componentes/cards/ShopCard";
 import SectionHeader from "../../componentes/headers/SectionHeader";
 import Header from "./componentes/Header";
+import { useNavigation } from '@react-navigation/native';
 
 const Loja = () => {
+    const navigation = useNavigation();
+
     return (
-        <View style={estilos.tela}>
+        <SafeAreaView style={estilos.tela}>
             <Header />
 
             <SectionHeader titulo={"Comprar por Categoria"} link={"Ver Tudo"} />
@@ -25,15 +28,15 @@ const Loja = () => {
 
             <SectionHeader titulo={"Itens Recomendados"} link={"Ver Tudo"} />
             <View style={estilos.recomendacoes}>
-                <ShopCard imagem={modelo1} produto={{ nome: "Camisa Regular Fit", preco: "R$ 100,00" }} />
-                <ShopCard imagem={modelo1} produto={{ nome: "Camisa Regular Fit", preco: "R$ 100,00" }} />
+                <ShopCard imagem={modelo1} produto={{ nome: "Camisa Regular Fit", preco: "R$ 100,00" }} navigation={navigation} />
+                <ShopCard imagem={modelo1} produto={{ nome: "Camisa Regular Fit", preco: "R$ 100,00" }} navigation={navigation} />
             </View>
 
             <View style={estilos.recomendacoes}>
-                <ShopCard imagem={modelo1} produto={{ nome: "Camisa Regular Fit", preco: "R$ 100,00" }} />
-                <ShopCard imagem={modelo1} produto={{ nome: "Camisa Regular Fit", preco: "R$ 100,00" }} />
+                <ShopCard imagem={modelo1} produto={{ nome: "Camisa Regular Fit", preco: "R$ 100,00" }} navigation={navigation} />
+                <ShopCard imagem={modelo1} produto={{ nome: "Camisa Regular Fit", preco: "R$ 100,00" }} navigation={navigation} />
             </View>
-        </View>
+        </SafeAreaView>
     )
 }
 

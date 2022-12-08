@@ -40,3 +40,4 @@ Ao longo do curso serão abordados os itens acima no decorrer do desenvolvimento
 * [React Native Vector Icons Directory](https://oblador.github.io/react-native-vector-icons/)
 * [Customizable Icons for React Native](https://github.com/oblador/react-native-vector-icons)
 * [Ionicons](https://ionic.io/ionicons)
+* [React Navigation - Documentação Oficial](https://reactnavigation.org/docs/getting-started)

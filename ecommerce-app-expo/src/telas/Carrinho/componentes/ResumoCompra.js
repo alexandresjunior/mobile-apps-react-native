@@ -95,6 +95,7 @@ const estilos = StyleSheet.create({
         borderWidth: 1,
         padding: 15,
         flex: 0.9,
+        backgroundColor: "white"
     },
     botaoPromocao: {
         backgroundColor: "#FF7A00",

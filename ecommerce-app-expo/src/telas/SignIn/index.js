@@ -1,10 +1,13 @@
 import React from "react";
-import { Image, StyleSheet, View, Text, TouchableOpacity, TextInput } from "react-native";
+import { StyleSheet, View, Text, TouchableOpacity, TextInput } from "react-native";
 import MaterialCommunityIcon from "react-native-vector-icons/MaterialCommunityIcons";
 import Checkbox from 'expo-checkbox';
 import NavBar from "./components/NavBar";
+import { useNavigation } from '@react-navigation/native';
 
 const SignIn = () => {
+    const navigation = useNavigation();
+
     return (
         <>
             <View style={estilos.cabecalho}></View>
@@ -36,7 +39,7 @@ const SignIn = () => {
                     defaultValue={""}
                 />
 
-                <TouchableOpacity style={estilos.botaoLogIn} onPress={() => { }}>
+                <TouchableOpacity style={estilos.botaoLogIn} onPress={() => { navigation.navigate('Tab Rotas') }}>
                     <Text style={estilos.textoBotaoLogIn}>Log In</Text>
                 </TouchableOpacity>
 
@@ -80,7 +83,7 @@ const estilos = StyleSheet.create({
         margin: 25
     },
     cabecalho: {
-        height: 200,
+        height: 250,
         backgroundColor: "#FF7A00"
     },
     separador: {

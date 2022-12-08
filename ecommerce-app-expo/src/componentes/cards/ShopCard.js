@@ -2,7 +2,11 @@ import React from "react";
 import { View, Text, Image, StyleSheet, TouchableOpacity } from "react-native";
 import AntDesignIcon from "react-native-vector-icons/AntDesign";
 
-const ShopCard = ({ imagem, produto }) => {
+const ShopCard = ({ imagem, produto, navigation }) => {
+    const aoClicarNoProduto = () => {
+        navigation.navigate('Produto', navigation);
+    }
+
     return (
         <View style={estilos.container} onPress={() => { }}>
             <Image source={imagem} style={estilos.imagem} />
@@ -22,7 +26,7 @@ const ShopCard = ({ imagem, produto }) => {
                 <Text>{produto.nome}</Text>
                 <View style={estilos.informacoes}>
                     <Text style={estilos.preco}>{produto.preco}</Text>
-                    <TouchableOpacity onPress={() => { }}>
+                    <TouchableOpacity onPress={() => aoClicarNoProduto()}>
                         <AntDesignIcon name="arrowright" size={20} color="#000000" />
                     </TouchableOpacity>
                 </View>

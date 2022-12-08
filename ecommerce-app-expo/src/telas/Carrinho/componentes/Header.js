@@ -2,10 +2,10 @@ import React from "react";
 import { StyleSheet, View, Text, TouchableOpacity, TextInput } from "react-native";
 import AntDesignIcon from "react-native-vector-icons/AntDesign";
 
-const Header = () => {
+const Header = ({ navigation }) => {
     return (
         <View style={estilos.container}>
-            <TouchableOpacity onPress={() => { }}>
+            <TouchableOpacity onPress={() => { navigation.goBack() }}>
                 <AntDesignIcon name="arrowleft" size={20} color="#000000" />
             </TouchableOpacity>
 
