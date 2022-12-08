@@ -2,13 +2,12 @@ import React from "react";
 import { Image, StyleSheet, View, Text, TouchableOpacity } from "react-native";
 import AntDesignIcon from "react-native-vector-icons/AntDesign";
 import FontAwesomeIcon from "react-native-vector-icons/FontAwesome";
-import modelo1 from "../../../../assets/modelo_1.png";
 
-const Item = () => {
+const Item = ({ imagem }) => {
     return (
-        <View style={estilos.itemCompra}>
+        <View style={estilos.container}>
             <View style={{ flexDirection: "row" }}>
-                <Image source={modelo1} style={estilos.itemImagem} />
+                <Image source={imagem} style={estilos.imagem} />
 
                 <View>
                     <View style={{ flexDirection: "row", justifyContent: "space-between", alignItems: "center" }}>
@@ -45,7 +44,7 @@ const Item = () => {
 export default Item;
 
 const estilos = StyleSheet.create({
-    itemCompra: {
+    container: {
         padding: 5,
         marginTop: 10,
         marginBottom: 10,
@@ -62,7 +61,7 @@ const estilos = StyleSheet.create({
         elevation: 2,
         padding: 20,
     },
-    itemImagem: {
+    imagem: {
         width: 90,
         height: 90,
     },
