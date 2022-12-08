@@ -1,12 +1,12 @@
 import { StatusBar } from 'expo-status-bar';
 import { SafeAreaView, Text } from 'react-native';
-import Produto from './src/telas/Produto';
+import Carrinho from './src/telas/Carrinho';
 
 export default function App() {
   return (
     <SafeAreaView>
       <StatusBar />
-      <Produto />
+      <Carrinho />
     </SafeAreaView>
   );
 }
