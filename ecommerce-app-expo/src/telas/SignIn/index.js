@@ -72,6 +72,7 @@ const estilos = StyleSheet.create({
         margin: 25
     },
     cabecalho: {
+        flex: 1, 
         height: 200,
         backgroundColor: "#FF7A00"
     },
