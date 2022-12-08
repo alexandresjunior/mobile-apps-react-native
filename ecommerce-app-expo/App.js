@@ -1,12 +1,12 @@
 import { StatusBar } from 'expo-status-bar';
 import { SafeAreaView, Text } from 'react-native';
-import SignIn from './src/telas/SignIn';
+import Produto from './src/telas/Produto';
 
 export default function App() {
   return (
     <SafeAreaView>
       <StatusBar />
-      <SignIn />
+      <Produto />
     </SafeAreaView>
   );
 }
