@@ -1,0 +1,104 @@
+{
+    "anuncios": [
+        {
+            "id": 1,
+            "titulo": "Troque e Economize",
+            "texto": "Desfrute de uma ótima economia",
+            "imagem": "./assets/celular_1.png"
+        },
+        {
+            "id": 2,
+            "titulo": "Troque e Economize",
+            "texto": "Desfrute de uma ótima economia",
+            "imagem": "./assets/celular_1.png"
+        },
+        {
+            "id": 3,
+            "titulo": "Troque e Economize",
+            "texto": "Desfrute de uma ótima economia",
+            "imagem": "./assets/celular_1.png"
+        },
+        {
+            "id": 4,
+            "titulo": "Troque e Economize",
+            "texto": "Desfrute de uma ótima economia",
+            "imagem": "./assets/celular_1.png"
+        }
+    ],
+    "ofertas": [
+        {
+            "id": 1,
+            "imagem": "./assets/oferta_1.png",
+            "legenda": "Liquidação",
+            "desconto": "50%"
+        },
+        {
+            "id": 2,
+            "imagem": "./assets/oferta_2.png",
+            "legenda": "Saldão",
+            "desconto": "30%"
+        },
+        {
+            "id": 3,
+            "imagem": "./assets/oferta_1.png",
+            "legenda": "Outlet",
+            "desconto": "40%"
+        },
+        {
+            "id": 4,
+            "imagem": "./assets/oferta_2.png",
+            "legenda": "Relâmpago",
+            "desconto": "70%"
+        }
+    ],
+    "produtos": [
+        {
+            "id": 1,
+            "nome": "Camisa Regular Fit",
+            "preco": 100.00,
+            "imagens": [
+                "./assets/modelo_1.png",
+                "./assets/modelo_2.png",
+                "./assets/modelo_3.png",
+                "./assets/modelo_4.png"
+            ],
+            "nota": 4.9
+        },
+        {
+            "id": 2,
+            "nome": "Camisa Regular Fit",
+            "preco": 100.00,
+            "imagens": [
+                "./assets/modelo_1.png",
+                "./assets/modelo_2.png",
+                "./assets/modelo_3.png",
+                "./assets/modelo_4.png"
+            ],
+            "nota": 4.9
+        },
+        {
+            "id": 3,
+            "nome": "Camisa Regular Fit",
+            "preco": 100.00,
+            "imagens": [
+                "./assets/modelo_1.png",
+                "./assets/modelo_2.png",
+                "./assets/modelo_3.png",
+                "./assets/modelo_4.png"
+            ],
+            "nota": 4.9
+        },
+        {
+            "id": 4,
+            "nome": "Camisa Regular Fit",
+            "preco": 100.00,
+            "imagens": [
+                "./assets/modelo_1.png",
+                "./assets/modelo_2.png",
+                "./assets/modelo_3.png",
+                "./assets/modelo_4.png"
+            ],
+            "nota": 4.9
+        }
+    ]
+}

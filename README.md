@@ -30,7 +30,6 @@ Ao longo do curso serão abordados os itens acima no decorrer do desenvolvimento
 * Aplicativo Expo Go no celular Android ou iOS
 * Android Studio (Emulador)
 
-
 ## Links Úteis
 
 * [Protótipo no Figma](https://www.figma.com/file/IOnoHzBvpRZ3XZZHSVsyaa/E-commerce-App-(Treina-Recife)?node-id=0%3A1&t=ksURpvTYw5WhmHB9-1)
@@ -41,3 +40,4 @@ Ao longo do curso serão abordados os itens acima no decorrer do desenvolvimento
 * [Customizable Icons for React Native](https://github.com/oblador/react-native-vector-icons)
 * [Ionicons](https://ionic.io/ionicons)
 * [React Navigation - Documentação Oficial](https://reactnavigation.org/docs/getting-started)
+* [REST APIs com JSON server](https://www.alura.com.br/artigos/react-native-rest-apis-json-server)
