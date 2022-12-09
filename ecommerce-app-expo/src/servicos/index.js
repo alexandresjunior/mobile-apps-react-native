@@ -1,23 +1,28 @@
 import axios from "axios";
 
+// Link to Postman Mock Server
+
 const api = axios.create({
-    baseURL: "http://localhost:5000/"
+    baseURL: "https://7a46adff-85b1-4880-887d-5a952916d127.mock.pstmn.io"
 });
 
 export const obterAnuncios = async (url, setAnuncios) => {
-    const resultado = await api.get(url);
-
-    setAnuncios(resultado.data);
+    await api.get(url)
+        .then(resultado => {
+            setAnuncios(resultado.data)
+        }).catch((erro) => console.error(erro));
 }
 
 export const obterOfertas = async (url, setOfertas) => {
-    const resultado = await api.get(url);
-
-    setOfertas(resultado.data);
+    await api.get(url)
+        .then(resultado => {
+            setOfertas(resultado.data)
+        }).catch((erro) => console.error(erro));
 }
 
 export const obterProdutos = async (url, setProdutos) => {
-    const resultado = await api.get(url);
-
-    setProdutos(resultado.data);
+    await api.get(url)
+        .then(resultado => {
+            setProdutos(resultado.data)
+        }).catch((erro) => console.error(erro));
 }
