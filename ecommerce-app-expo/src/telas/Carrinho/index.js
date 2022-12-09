@@ -17,13 +17,14 @@ const Carrinho = ({ route, navigation }) => {
                 ListHeaderComponent={() => {
                     return <Header navigation={navigation} />
                 }}
-            />
-
-            <ResumoCompra
-                subtotal={"R$ 2.600"}
-                voucher={"R$ 100"}
-                taxa={"R$ 20"}
-                total={"R$ 2.520"}
+                ListFooterComponent={() => {
+                    return <ResumoCompra
+                        subtotal={"R$ 2.600"}
+                        voucher={"R$ 100"}
+                        taxa={"R$ 20"}
+                        total={"R$ 2.520"}
+                    />
+                }}
             />
         </SafeAreaView>
     )

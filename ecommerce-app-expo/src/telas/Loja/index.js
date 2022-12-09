@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { SafeAreaView, StyleSheet, View } from "react-native";
+import { SafeAreaView, StyleSheet, View, ScrollView } from "react-native";
 import cartaoCompras1 from "../../../assets/cartao_compras_icon_1.png";
 import cartaoCompras2 from "../../../assets/cartao_compras_icon_2.png";
 import cartaoCompras3 from "../../../assets/cartao_compras_icon_3.png";
@@ -19,17 +19,17 @@ const Loja = () => {
 
     return (
         <SafeAreaView style={estilos.tela}>
-            <Header />
-
-            <SectionHeader titulo={"Comprar por Categoria"} link={"Ver Tudo"} />
-            <View style={estilos.categorias}>
-                <MiniCard imagem={cartaoCompras1} legenda={"Popular"} />
-                <MiniCard imagem={cartaoCompras2} legenda={"Homem"} />
-                <MiniCard imagem={cartaoCompras3} legenda={"Mulher"} />
-                <MiniCard imagem={cartaoCompras4} legenda={"Crianças"} />
-            </View>
-
-            <ItensRecomendados produtos={produtos} />
+            <ScrollView showsVerticalScrollIndicator={false}>
+                <Header />
+                <SectionHeader titulo={"Comprar por Categoria"} link={"Ver Tudo"} />
+                <View style={estilos.categorias}>
+                    <MiniCard imagem={cartaoCompras1} legenda={"Popular"} />
+                    <MiniCard imagem={cartaoCompras2} legenda={"Homem"} />
+                    <MiniCard imagem={cartaoCompras3} legenda={"Mulher"} />
+                    <MiniCard imagem={cartaoCompras4} legenda={"Crianças"} />
+                </View>
+                <ItensRecomendados produtos={produtos} />
+            </ScrollView>
         </SafeAreaView>
     )
 }

@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { SafeAreaView, StyleSheet } from "react-native";
+import { SafeAreaView, ScrollView, StyleSheet } from "react-native";
 import PromoCard from "../../componentes/cards/PromoCard";
 import Header from "./componentes/Header";
 import { obterAnuncios, obterOfertas } from "../../servicos";
@@ -17,10 +17,12 @@ const Home = () => {
 
     return (
         <SafeAreaView style={estilos.tela}>
-            <Header />
-            <Anuncios anuncios={anuncios} />
-            <Ofertas ofertas={ofertas} />
-            <PromoCard />
+            <ScrollView showsVerticalScrollIndicator={false}>
+                <Header />
+                <Anuncios anuncios={anuncios} />
+                <Ofertas ofertas={ofertas} />
+                <PromoCard />
+            </ScrollView>
         </SafeAreaView>
     )
 }
