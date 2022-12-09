@@ -4,7 +4,11 @@ import AntDesignIcon from "react-native-vector-icons/AntDesign";
 
 const ShopCard = ({ imagem, produto, navigation }) => {
     const aoClicarNoProduto = () => {
-        navigation.navigate('Produto', navigation);
+        navigation.navigate('Produto',
+            {
+                produto: produto,
+                navigation: navigation
+            });
     }
 
     return (

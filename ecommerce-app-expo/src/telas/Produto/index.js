@@ -7,9 +7,11 @@ import modelo3 from "../../../assets/modelo_3.png";
 import modelo4 from "../../../assets/modelo_4.png";
 import AntDesignIcon from "react-native-vector-icons/AntDesign";
 
-const Produto = ({ navigation }) => {
+const Produto = ({ route, navigation }) => {
+    const { produto } = route.params;
+
     const aoClicarEmAdicionarAoCarrinho = () => {
-        navigation.navigate("Carrinho", navigation);
+        navigation.navigate("Carrinho");
     }
 
     return (
@@ -36,12 +38,12 @@ const Produto = ({ navigation }) => {
 
                 <View style={{ flexDirection: "row" }}>
                     <AntDesignIcon name="star" size={20} color="#FDCC0D" />
-                    <Text style={{ fontSize: 18, fontWeight: "bold", marginStart: 5 }}>4.9</Text>
+                    <Text style={{ fontSize: 18, fontWeight: "bold", marginStart: 5 }}>{produto.nota}</Text>
                     <Text style={{ color: "#CACACA", marginStart: 5 }}>(85 Reviews)</Text>
                 </View>
 
-                <Text style={{ fontSize: 16, marginTop: 10 }}>Camisa de Algodão Regular Fit (Masculina)</Text>
-                <Text style={{ fontSize: 18, fontWeight: "bold", marginTop: 10 }}>R$ 100,00</Text>
+                <Text style={{ fontSize: 16, marginTop: 10 }}>{produto.nome}</Text>
+                <Text style={{ fontSize: 18, fontWeight: "bold", marginTop: 10 }}>R$ {produto.preco}</Text>
 
                 <Text style={{ fontSize: 16, marginTop: 15 }}>Selecionar Tamanho:</Text>
 

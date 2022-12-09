@@ -4,18 +4,13 @@ import cartaoCompras1 from "../../../assets/cartao_compras_icon_1.png";
 import cartaoCompras2 from "../../../assets/cartao_compras_icon_2.png";
 import cartaoCompras3 from "../../../assets/cartao_compras_icon_3.png";
 import cartaoCompras4 from "../../../assets/cartao_compras_icon_4.png";
-import modelo1 from "../../../assets/modelo_1.png";
 import MiniCard from "../../componentes/cards/MiniCard";
-import ShopCard from "../../componentes/cards/ShopCard";
 import SectionHeader from "../../componentes/headers/SectionHeader";
 import Header from "./componentes/Header";
-import { useNavigation } from '@react-navigation/native';
 import ItensRecomendados from "./componentes/ItensRecomendados";
 import { obterProdutos } from "../../servicos";
 
 const Loja = () => {
-    const navigation = useNavigation();
-
     const [produtos, setProdutos] = useState([]);
 
     useEffect(() => {
