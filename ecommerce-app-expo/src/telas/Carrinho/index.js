@@ -1,18 +1,23 @@
 import React from "react";
-import { SafeAreaView, StyleSheet, View } from "react-native";
+import { SafeAreaView, StyleSheet, FlatList } from "react-native";
 import Header from "./componentes/Header";
 import Item from "./componentes/Item";
-import modelo1 from "../../../assets/modelo_1.png";
 import ResumoCompra from "./componentes/ResumoCompra";
 
-const Carrinho = ({ navigation }) => {
+const Carrinho = ({ route, navigation }) => {
+    const { item } = route.params;
+
     return (
         <SafeAreaView style={estilos.tela}>
-            <Header navigation={navigation} />
-
-            <Item imagem={modelo1} />
-            <Item imagem={modelo1} />
-            <Item imagem={modelo1} />
+            <FlatList
+                style={estilos.lista}
+                data={[item]}
+                renderItem={({ item }) => <Item item={item} />}
+                keyExtractor={item => item.id}
+                ListHeaderComponent={() => {
+                    return <Header navigation={navigation} />
+                }}
+            />
 
             <ResumoCompra
                 subtotal={"R$ 2.600"}

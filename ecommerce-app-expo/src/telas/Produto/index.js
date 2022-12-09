@@ -11,7 +11,7 @@ const Produto = ({ route, navigation }) => {
     const { produto } = route.params;
 
     const aoClicarEmAdicionarAoCarrinho = () => {
-        navigation.navigate("Carrinho");
+        navigation.navigate("Carrinho", { item: produto });
     }
 
     return (
