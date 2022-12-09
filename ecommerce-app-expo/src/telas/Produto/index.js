@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Image, StyleSheet, View, Text, TouchableOpacity, SafeAreaView } from "react-native";
 import Carousel from "./componentes/Carousel";
 import modelo1 from "../../../assets/modelo_1.png";
@@ -9,6 +9,7 @@ import AntDesignIcon from "react-native-vector-icons/AntDesign";
 
 const Produto = ({ route, navigation }) => {
     const { produto } = route.params;
+    const [tamanho, setTamanho] = useState("");
 
     const aoClicarEmAdicionarAoCarrinho = () => {
         navigation.navigate("Carrinho", { item: produto });
@@ -36,7 +37,7 @@ const Produto = ({ route, navigation }) => {
                     </TouchableOpacity>
                 </View>
 
-                <View style={{ flexDirection: "row" }}>
+                <View style={{ flexDirection: "row", alignItems: "center" }}>
                     <AntDesignIcon name="star" size={20} color="#FDCC0D" />
                     <Text style={{ fontSize: 18, fontWeight: "bold", marginStart: 5 }}>{produto.nota}</Text>
                     <Text style={{ color: "#CACACA", marginStart: 5 }}>(85 Reviews)</Text>
@@ -48,19 +49,51 @@ const Produto = ({ route, navigation }) => {
                 <Text style={{ fontSize: 16, marginTop: 15 }}>Selecionar Tamanho:</Text>
 
                 <View style={{ flexDirection: "row", marginTop: 15 }}>
-                    <TouchableOpacity style={[estilos.botaoTamanho, { marginEnd: 10 }]} onPress={() => { }}>
+                    <TouchableOpacity
+                        style={
+                            [
+                                estilos.botaoTamanho,
+                                { marginEnd: 10 },
+                                tamanho === 'P' && estilos.botaoSelecionado
+                            ]
+                        }
+                        onPress={() => setTamanho("P")}>
                         <Text style={{ fontSize: 16 }}>P</Text>
                     </TouchableOpacity>
 
-                    <TouchableOpacity style={[estilos.botaoTamanho, { marginHorizontal: 10 }]} onPress={() => { }}>
+                    <TouchableOpacity
+                        style={
+                            [
+                                estilos.botaoTamanho,
+                                { marginHorizontal: 10 },
+                                tamanho === 'M' && estilos.botaoSelecionado
+                            ]
+                        }
+                        onPress={() => setTamanho("M")}>
                         <Text style={{ fontSize: 16 }}>M</Text>
                     </TouchableOpacity>
 
-                    <TouchableOpacity style={[estilos.botaoTamanho, { marginHorizontal: 10, backgroundColor: "#FFA959", borderColor: "#FFA959" }]} onPress={() => { }}>
+                    <TouchableOpacity
+                        style={
+                            [
+                                estilos.botaoTamanho,
+                                { marginHorizontal: 10 },
+                                tamanho === 'G' && estilos.botaoSelecionado
+                            ]
+                        }
+                        onPress={() => setTamanho("G")}>
                         <Text style={{ fontSize: 16 }}>G</Text>
                     </TouchableOpacity>
 
-                    <TouchableOpacity style={[estilos.botaoTamanho, { marginHorizontal: 10 }]} onPress={() => { }}>
+                    <TouchableOpacity
+                        style={
+                            [
+                                estilos.botaoTamanho,
+                                { marginHorizontal: 10 },
+                                tamanho === 'GG' && estilos.botaoSelecionado
+                            ]
+                        }
+                        onPress={() => setTamanho("GG")}>
                         <Text style={{ fontSize: 16 }}>GG</Text>
                     </TouchableOpacity>
                 </View>
@@ -143,5 +176,9 @@ const estilos = StyleSheet.create({
         textAlign: "center",
         color: "#FFFFFF",
         fontWeight: "bold"
+    },
+    botaoSelecionado: {
+        backgroundColor: "#FFA959",
+        borderColor: "#FFA959"
     }
 })
