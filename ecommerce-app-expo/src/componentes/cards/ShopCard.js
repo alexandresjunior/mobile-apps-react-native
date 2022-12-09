@@ -1,8 +1,11 @@
 import React from "react";
 import { View, Text, Image, StyleSheet, TouchableOpacity } from "react-native";
 import AntDesignIcon from "react-native-vector-icons/AntDesign";
+import { useNavigation } from "@react-navigation/native";
 
-const ShopCard = ({ imagem, produto, navigation }) => {
+const ShopCard = ({ imagem, produto }) => {
+    const navigation = useNavigation();
+
     const aoClicarNoProduto = () => {
         navigation.navigate('Produto',
             {
