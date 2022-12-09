@@ -1,13 +1,13 @@
 import React from "react";
 import { Image, StyleSheet, View, Text, TouchableOpacity } from "react-native";
 
-const HorizontalCard = ({ imagem }) => {
+const HorizontalCard = ({ titulo, texto, imagem }) => {
     return (
         <View style={estilos.container}>
             <View style={estilos.conteudo}>
                 <View>
-                    <Text style={estilos.titulo}>Troque e Economize</Text>
-                    <Text style={estilos.texto}>Desfrute de uma ótima economia na sua compras</Text>
+                    <Text style={estilos.titulo}>{titulo}</Text>
+                    <Text style={estilos.texto}>{texto}</Text>
 
                     <TouchableOpacity style={estilos.botao} onPress={() => { }}>
                         <Text style={estilos.textoBotao}>Saiba Mais</Text>
@@ -16,7 +16,6 @@ const HorizontalCard = ({ imagem }) => {
 
                 <Image source={imagem} style={estilos.imagem} />
             </View>
-
         </View>
     )
 }
@@ -27,6 +26,7 @@ const estilos = StyleSheet.create({
     container: {
         marginTop: 20,
         marginBottom: 20,
+        marginEnd: 10,
         backgroundColor: "#FFFFFF",
         borderRadius: 10,
         shadowColor: "#000",

@@ -1,27 +1,25 @@
-import React from "react";
-import { SafeAreaView, StyleSheet, View } from "react-native";
-import celular1 from "../../../assets/celular_1.png";
-import imgOferta1 from "../../../assets/oferta_1.png";
-import imgOferta2 from "../../../assets/oferta_2.png";
+import React, { useEffect, useState } from "react";
+import { SafeAreaView, StyleSheet } from "react-native";
 import PromoCard from "../../componentes/cards/PromoCard";
-import HorizontalCard from "../../componentes/cards/HorizontalCard";
 import Header from "./componentes/Header";
-import VerticalCard from "../../componentes/cards/VerticalCard";
-import SectionHeader from "../../componentes/headers/SectionHeader";
+import { obterAnuncios, obterOfertas } from "../../servicos";
+import Anuncios from "./componentes/Anuncios";
+import Ofertas from "./componentes/Ofertas";
 
 const Home = () => {
+    const [anuncios, setAnuncios] = useState([]);
+    const [ofertas, setOfertas] = useState([]);
+
+    useEffect(() => {
+        obterAnuncios("/anuncios", setAnuncios);
+        obterOfertas("/ofertas", setOfertas);
+    }, []);
+
     return (
         <SafeAreaView style={estilos.tela}>
             <Header />
-
-            <HorizontalCard imagem={celular1} />
-
-            <SectionHeader titulo={"Ofertas Incríveis"} link={"Ver Tudo"} />
-            <View style={estilos.ofertas}>
-                <VerticalCard imagem={imgOferta1} />
-                <VerticalCard imagem={imgOferta2} />
-            </View>
-
+            <Anuncios anuncios={anuncios} />
+            <Ofertas ofertas={ofertas} />
             <PromoCard />
         </SafeAreaView>
     )
@@ -32,10 +30,5 @@ export default Home;
 const estilos = StyleSheet.create({
     tela: {
         margin: 25
-    },
-    ofertas: {
-        marginTop: 20,
-        marginBottom: 10,
-        flexDirection: "row"
     }
 })
