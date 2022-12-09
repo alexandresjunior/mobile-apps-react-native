@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Dimensions, StyleSheet, Platform, View, ScrollView, Image, Text } from 'react-native';
+import { Dimensions, StyleSheet, View, ScrollView, Image, Text } from 'react-native';
 import modelo1 from "../../../../assets/modelo_1.png";
 import modelo2 from "../../../../assets/modelo_2.png";
 import modelo3 from "../../../../assets/modelo_3.png";
@@ -10,16 +10,15 @@ const WIDTH = Dimensions.get('window').width;
 const HEIGHT = Dimensions.get('window').height;
 
 const Carousel = () => {
-    // const [imgActive, setImgActive] = useState(0);
-    let imgActive = 1;
+    const [imagemAtiva, setImagemAtiva] = useState(0);
 
     const handleOnChange = (nativeEvent) => {
         if (nativeEvent) {
             const slide = Math.ceil(nativeEvent.contentOffset.x / nativeEvent.layoutMeasurement.width);
 
-            // if (slide != imgActive) {
-            //     setImgActive(slide);
-            // }
+            if (slide != imagemAtiva) {
+                setImagemAtiva(slide);
+            }
         }
     }
 
@@ -49,7 +48,7 @@ const Carousel = () => {
 
             <View style={estilos.wrapDot}>
                 {imagens.map((imagem, index) => {
-                    return (<Text key={index} style={index == imgActive ? estilos.dotActive : estilos.dot}>●</Text>)
+                    return <Text key={index} style={index == imagemAtiva ? estilos.dotActive : estilos.dot}>●</Text>
                 })}
             </View>
 
