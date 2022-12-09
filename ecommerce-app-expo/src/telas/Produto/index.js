@@ -10,9 +10,24 @@ import AntDesignIcon from "react-native-vector-icons/AntDesign";
 const Produto = ({ route, navigation }) => {
     const { produto } = route.params;
     const [tamanho, setTamanho] = useState("");
+    let [numItens, setNumItens] = useState(0);
 
     const aoClicarEmAdicionarAoCarrinho = () => {
-        navigation.navigate("Carrinho", { item: produto });
+        navigation.navigate("Carrinho", { item: produto, tamanho: tamanho, numItens: numItens, setNumItens: setNumItens });
+    }
+
+    const decrementarNumItens = (event) => {
+        event.preventDefault();
+
+        if (numItens > 0) {
+            setNumItens(--numItens);
+        }
+    }
+
+    const incrementarNumItens = (event) => {
+        event.preventDefault();
+
+        setNumItens(++numItens);
     }
 
     return (
@@ -101,13 +116,13 @@ const Produto = ({ route, navigation }) => {
                 <View style={{ flexDirection: "row", alignItems: 'center', justifyContent: "space-between", marginTop: 25 }}>
                     <View style={estilos.botao}>
                         <View style={{ flexDirection: "row", alignItems: 'center' }}>
-                            <TouchableOpacity style={[estilos.botaoNumItens, { marginHorizontal: 10 }]} onPress={() => { }}>
+                            <TouchableOpacity style={[estilos.botaoNumItens, { marginHorizontal: 10 }]} onPress={decrementarNumItens}>
                                 <AntDesignIcon name="minus" size={15} color="#000000" />
                             </TouchableOpacity>
 
-                            <Text style={{ fontSize: 20, fontWeight: "bold" }}>2</Text>
+                            <Text style={{ fontSize: 20, fontWeight: "bold" }}>{numItens}</Text>
 
-                            <TouchableOpacity style={[estilos.botaoNumItens, { marginHorizontal: 10 }]} onPress={() => { }}>
+                            <TouchableOpacity style={[estilos.botaoNumItens, { marginHorizontal: 10 }]} onPress={incrementarNumItens}>
                                 <AntDesignIcon name="plus" size={15} color="#000000" />
                             </TouchableOpacity>
                         </View>

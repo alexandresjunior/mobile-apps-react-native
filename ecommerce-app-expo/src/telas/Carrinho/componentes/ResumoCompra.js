@@ -20,24 +20,24 @@ const ResumoCompra = ({ subtotal, voucher, taxa, total }) => {
 
             <View style={estilos.conteudo}>
                 <Text style={estilos.subtitulo}>Sub-total</Text>
-                <Text style={estilos.texto}>{subtotal}</Text>
+                <Text style={estilos.texto}>R$ {subtotal}</Text>
             </View>
 
             <View style={estilos.conteudo}>
                 <Text style={estilos.subtitulo}>Voucher</Text>
-                <Text style={estilos.texto}>- {voucher}</Text>
+                <Text style={estilos.texto}>- R$ {voucher}</Text>
             </View>
 
             <View style={estilos.conteudo}>
                 <Text style={estilos.subtitulo}>Taxa de Entrega</Text>
-                <Text style={estilos.texto}>{taxa}</Text>
+                <Text style={estilos.texto}>R$ {taxa}</Text>
             </View>
 
             <View style={estilos.separador} />
 
             <View style={estilos.conteudo}>
                 <Text style={estilos.titulo}>Total</Text>
-                <Text style={estilos.titulo}>{total}</Text>
+                <Text style={estilos.titulo}>R$ {total}</Text>
             </View>
 
             <TouchableOpacity style={estilos.botao} onPress={() => { }}>

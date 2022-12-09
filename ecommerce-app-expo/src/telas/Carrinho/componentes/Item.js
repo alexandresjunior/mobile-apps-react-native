@@ -4,7 +4,21 @@ import AntDesignIcon from "react-native-vector-icons/AntDesign";
 import FontAwesomeIcon from "react-native-vector-icons/FontAwesome";
 import modelo1 from "../../../../assets/modelo_1.png";
 
-const Item = ({ item }) => {
+const Item = ({ item, tamanho, numItens, setNumItens }) => {
+    const decrementarNumItens = (event) => {
+        event.preventDefault();
+
+        if (numItens > 0) {
+            setNumItens(--numItens);
+        }
+    }
+
+    const incrementarNumItens = (event) => {
+        event.preventDefault();
+
+        setNumItens(++numItens);
+    }
+
     return (
         <View style={[estilos.container, estilos.conteudo]}>
             <Image source={modelo1} style={estilos.imagem} />
@@ -19,20 +33,20 @@ const Item = ({ item }) => {
                 </View>
 
                 <View style={estilos.conteudo}>
-                    <Text style={{ fontSize: 12, marginTop: 10 }}>Tamanho: M</Text>
+                    <Text style={{ fontSize: 12, marginTop: 10 }}>Tamanho: {tamanho}</Text>
                 </View>
 
                 <View style={estilos.conteudo}>
                     <Text style={{ fontSize: 18, fontWeight: "bold" }}>R$ {item.preco}</Text>
 
                     <View style={estilos.conteudo}>
-                        <TouchableOpacity style={[estilos.botaoNumItens, { marginHorizontal: 10 }]} onPress={() => { }}>
+                        <TouchableOpacity style={[estilos.botaoNumItens, { marginHorizontal: 10 }]} onPress={decrementarNumItens}>
                             <AntDesignIcon name="minus" size={15} color="#000000" />
                         </TouchableOpacity>
 
-                        <Text style={{ fontSize: 20, fontWeight: "bold" }}>2</Text>
+                        <Text style={{ fontSize: 20, fontWeight: "bold" }}>{numItens}</Text>
 
-                        <TouchableOpacity style={[estilos.botaoNumItens, { marginStart: 10 }]} onPress={() => { }}>
+                        <TouchableOpacity style={[estilos.botaoNumItens, { marginStart: 10 }]} onPress={incrementarNumItens}>
                             <AntDesignIcon name="plus" size={15} color="#000000" />
                         </TouchableOpacity>
                     </View>
