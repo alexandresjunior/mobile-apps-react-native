@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { SafeAreaView, StyleSheet, View } from "react-native";
 import cartaoCompras1 from "../../../assets/cartao_compras_icon_1.png";
 import cartaoCompras2 from "../../../assets/cartao_compras_icon_2.png";
@@ -10,32 +10,31 @@ import ShopCard from "../../componentes/cards/ShopCard";
 import SectionHeader from "../../componentes/headers/SectionHeader";
 import Header from "./componentes/Header";
 import { useNavigation } from '@react-navigation/native';
+import ItensRecomendados from "./componentes/ItensRecomendados";
+import { obterProdutos } from "../../servicos";
 
 const Loja = () => {
     const navigation = useNavigation();
+
+    const [produtos, setProdutos] = useState([]);
+
+    useEffect(() => {
+        obterProdutos("/produtos", setProdutos);
+    }, []);
 
     return (
         <SafeAreaView style={estilos.tela}>
             <Header />
 
             <SectionHeader titulo={"Comprar por Categoria"} link={"Ver Tudo"} />
-            <View style={estilos.ofertas}>
+            <View style={estilos.categorias}>
                 <MiniCard imagem={cartaoCompras1} legenda={"Popular"} />
                 <MiniCard imagem={cartaoCompras2} legenda={"Homem"} />
                 <MiniCard imagem={cartaoCompras3} legenda={"Mulher"} />
                 <MiniCard imagem={cartaoCompras4} legenda={"Crianças"} />
             </View>
 
-            <SectionHeader titulo={"Itens Recomendados"} link={"Ver Tudo"} />
-            <View style={estilos.recomendacoes}>
-                <ShopCard imagem={modelo1} produto={{ nome: "Camisa Regular Fit", preco: "R$ 100,00" }} navigation={navigation} />
-                <ShopCard imagem={modelo1} produto={{ nome: "Camisa Regular Fit", preco: "R$ 100,00" }} navigation={navigation} />
-            </View>
-
-            <View style={estilos.recomendacoes}>
-                <ShopCard imagem={modelo1} produto={{ nome: "Camisa Regular Fit", preco: "R$ 100,00" }} navigation={navigation} />
-                <ShopCard imagem={modelo1} produto={{ nome: "Camisa Regular Fit", preco: "R$ 100,00" }} navigation={navigation} />
-            </View>
+            <ItensRecomendados produtos={produtos} />
         </SafeAreaView>
     )
 }
@@ -60,13 +59,9 @@ const estilos = StyleSheet.create({
         textAlign: "center",
         color: "#FF7A00",
     },
-    ofertas: {
+    categorias: {
         marginTop: 20,
         marginBottom: 25,
-        flexDirection: "row",
-        justifyContent: "space-between"
-    },
-    recomendacoes: {
         flexDirection: "row",
         justifyContent: "space-between"
     }

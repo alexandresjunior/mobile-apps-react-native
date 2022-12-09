@@ -25,7 +25,7 @@ const ShopCard = ({ imagem, produto, navigation }) => {
             <View style={estilos.conteudo} onPress={() => { }}>
                 <Text>{produto.nome}</Text>
                 <View style={estilos.informacoes}>
-                    <Text style={estilos.preco}>{produto.preco}</Text>
+                    <Text style={estilos.preco}>R$ {produto.preco}</Text>
                     <TouchableOpacity onPress={() => aoClicarNoProduto()}>
                         <AntDesignIcon name="arrowright" size={20} color="#000000" />
                     </TouchableOpacity>
