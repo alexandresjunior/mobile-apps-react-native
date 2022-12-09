@@ -16,7 +16,6 @@
     "expo": "~47.0.8",
     "expo-checkbox": "~2.2.2",
     "expo-status-bar": "~1.4.2",
-    "json-server": "^0.17.1",
     "react": "18.1.0",
     "react-native": "0.70.5",
     "react-native-safe-area-context": "4.4.1",
