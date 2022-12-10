@@ -18,6 +18,7 @@ Ao finalizar este curso, você será capaz de desenvolver aplicativos para Andro
 4. Menu e Navegação entre Telas
 5. Armazenamento Local: AsyncStorage e SQLite
 6. Integração com API externas: Web API
+7. Context API
 
 ## Metodologia
 
@@ -32,6 +33,7 @@ Ao longo do curso serão abordados os itens acima no decorrer do desenvolvimento
 
 ## Links Úteis
 
+* [Aula JavaScript - CS50 Harvard](https://cs50.harvard.edu/web/2020/weeks/5/)
 * [Protótipo no Figma](https://www.figma.com/file/IOnoHzBvpRZ3XZZHSVsyaa/E-commerce-App-(Treina-Recife)?node-id=0%3A1&t=ksURpvTYw5WhmHB9-1)
 * [React Native - Documentação Oficial](https://reactnative.dev/)
 * [Expo - Documentação Oficial](https://docs.expo.dev/)
