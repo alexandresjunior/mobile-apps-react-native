@@ -1,23 +1,12 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Image, StyleSheet, View, Text, TouchableOpacity } from "react-native";
 import AntDesignIcon from "react-native-vector-icons/AntDesign";
 import FontAwesomeIcon from "react-native-vector-icons/FontAwesome";
 import modelo1 from "../../../../assets/modelo_1.png";
+import { GlobalContext } from "../../../contexts/GlobalContext";
 
-const Item = ({ item, tamanho, numItens, setNumItens }) => {
-    const decrementarNumItens = (event) => {
-        event.preventDefault();
-
-        if (numItens > 0) {
-            setNumItens(--numItens);
-        }
-    }
-
-    const incrementarNumItens = (event) => {
-        event.preventDefault();
-
-        setNumItens(++numItens);
-    }
+const Item = ({ item, tamanho }) => {
+    const { numItens, decrementarNumItens, incrementarNumItens } = useContext(GlobalContext);
 
     return (
         <View style={[estilos.container, estilos.conteudo]}>

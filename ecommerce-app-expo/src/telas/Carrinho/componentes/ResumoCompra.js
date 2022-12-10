@@ -1,7 +1,21 @@
-import React from "react";
+import React, { useState, useContext, useEffect } from "react";
 import { StyleSheet, View, Text, TouchableOpacity, TextInput } from "react-native";
+import { GlobalContext } from "../../../contexts/GlobalContext";
 
-const ResumoCompra = ({ subtotal, voucher, taxa, total }) => {
+const ResumoCompra = ({ item }) => {
+    const { numItens } = useContext(GlobalContext);
+
+    let [subtotal, setSubtotal] = useState(0);
+
+    useEffect(() => {
+        setSubtotal(item.preco * numItens)
+    }, [numItens]);
+
+    const voucher = subtotal === 0 ? 0 : 100;
+    const taxa = subtotal === 0 ? 0 : 20;
+
+    const total = subtotal - voucher + taxa;
+
     return (
         <>
             <View style={estilos.conteudo}>

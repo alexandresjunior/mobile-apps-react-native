@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { Image, StyleSheet, View, Text, TouchableOpacity, SafeAreaView } from "react-native";
 import Carousel from "./componentes/Carousel";
 import modelo1 from "../../../assets/modelo_1.png";
@@ -6,29 +6,17 @@ import modelo2 from "../../../assets/modelo_2.png";
 import modelo3 from "../../../assets/modelo_3.png";
 import modelo4 from "../../../assets/modelo_4.png";
 import AntDesignIcon from "react-native-vector-icons/AntDesign";
+import { GlobalContext } from "../../contexts/GlobalContext";
 
 const Produto = ({ route, navigation }) => {
     const produto = route.params;
 
+    const { numItens, decrementarNumItens, incrementarNumItens } = useContext(GlobalContext);
+
     const [tamanho, setTamanho] = useState("");
-    let [numItens, setNumItens] = useState(0);
 
     const aoClicarEmAdicionarAoCarrinho = () => {
-        navigation.navigate("Carrinho", { item: produto, tamanho: tamanho, numItens: numItens, setNumItens: setNumItens });
-    }
-
-    const decrementarNumItens = (event) => {
-        event.preventDefault();
-
-        if (numItens > 0) {
-            setNumItens(--numItens);
-        }
-    }
-
-    const incrementarNumItens = (event) => {
-        event.preventDefault();
-
-        setNumItens(++numItens);
+        navigation.navigate("Carrinho", { item: produto, tamanho: tamanho });
     }
 
     return (
