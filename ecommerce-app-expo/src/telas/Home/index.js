@@ -1,19 +1,15 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { SafeAreaView, ScrollView, StyleSheet } from "react-native";
 import PromoCard from "../../componentes/cards/PromoCard";
 import Header from "./componentes/Header";
-import { obterAnuncios, obterOfertas } from "../../servicos";
 import Anuncios from "./componentes/Anuncios";
 import Ofertas from "./componentes/Ofertas";
+import { useAnuncios } from "../../hooks/useAnuncios";
+import { useOfertas } from "../../hooks/useOfertas";
 
 const Home = () => {
-    const [anuncios, setAnuncios] = useState([]);
-    const [ofertas, setOfertas] = useState([]);
-
-    useEffect(() => {
-        obterAnuncios("/anuncios", setAnuncios);
-        obterOfertas("/ofertas", setOfertas);
-    }, []);
+    const [anuncios] = useAnuncios();
+    const [ofertas] = useOfertas();
 
     return (
         <SafeAreaView style={estilos.tela}>

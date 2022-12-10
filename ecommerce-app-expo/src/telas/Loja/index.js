@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { SafeAreaView, StyleSheet, View, ScrollView } from "react-native";
 import cartaoCompras1 from "../../../assets/cartao_compras_icon_1.png";
 import cartaoCompras2 from "../../../assets/cartao_compras_icon_2.png";
@@ -8,14 +8,10 @@ import MiniCard from "../../componentes/cards/MiniCard";
 import SectionHeader from "../../componentes/headers/SectionHeader";
 import Header from "./componentes/Header";
 import ItensRecomendados from "./componentes/ItensRecomendados";
-import { obterProdutos } from "../../servicos";
+import { useProdutos } from "../../hooks/useProdutos";
 
 const Loja = () => {
-    const [produtos, setProdutos] = useState([]);
-
-    useEffect(() => {
-        obterProdutos("/produtos", setProdutos);
-    }, []);
+    const [produtos] = useProdutos();
 
     return (
         <SafeAreaView style={estilos.tela}>
