@@ -1,12 +1,29 @@
-import React from "react";
-import { StyleSheet, View, Text, TouchableOpacity, TextInput, AsyncStorage } from "react-native";
+import React, { useState } from "react";
+import { StyleSheet, View, Text, TouchableOpacity, TextInput } from "react-native";
 import MaterialCommunityIcon from "react-native-vector-icons/MaterialCommunityIcons";
 import Checkbox from 'expo-checkbox';
 import NavBar from "./components/NavBar";
 import { useNavigation } from '@react-navigation/native';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 const SignIn = () => {
     const navigation = useNavigation();
+
+    const [email, setEmail] = useState("");
+    const [senha, setSenha] = useState("");
+
+    const salvarDadosLogIn = async () => {
+        const usuario = {
+            id: "1",
+            nome: "Alexandre de Souza Jr.",
+            email: email,
+            senha: senha
+        }
+
+        const jsonValue = JSON.stringify(usuario);
+
+        await AsyncStorage.setItem("usuario", jsonValue).catch((erro) => console.error(erro));
+    }
 
     return (
         <>
@@ -27,19 +44,28 @@ const SignIn = () => {
                     style={estilos.input}
                     placeholder="E-mail"
                     keyboardType="email"
-                    onChangeText={() => { }}
-                    defaultValue={""}
+                    onChangeText={(email) => {
+                        setEmail(email)
+                    }}
+                    defaultValue={email}
                 />
 
                 <TextInput
                     style={estilos.input}
                     placeholder="Senha"
                     keyboardType="password"
-                    onChangeText={() => { }}
-                    defaultValue={""}
+                    onChangeText={(senha) => {
+                        setSenha(senha)
+                    }}
+                    defaultValue={senha}
                 />
 
-                <TouchableOpacity style={estilos.botaoLogIn} onPress={() => { navigation.navigate('Tab Rotas') }}>
+                <TouchableOpacity
+                    style={estilos.botaoLogIn}
+                    onPress={() => {
+                        salvarDadosLogIn();
+                        navigation.navigate("Tab Rotas");
+                    }}>
                     <Text style={estilos.textoBotaoLogIn}>Log In</Text>
                 </TouchableOpacity>
 
