@@ -7,11 +7,7 @@ const ShopCard = ({ imagem, produto }) => {
     const navigation = useNavigation();
 
     const aoClicarNoProduto = () => {
-        navigation.navigate('Produto',
-            {
-                produto: produto,
-                navigation: navigation
-            });
+        navigation.navigate('Produto', produto);
     }
 
     return (

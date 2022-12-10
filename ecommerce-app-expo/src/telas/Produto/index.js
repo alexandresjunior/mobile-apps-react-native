@@ -8,7 +8,8 @@ import modelo4 from "../../../assets/modelo_4.png";
 import AntDesignIcon from "react-native-vector-icons/AntDesign";
 
 const Produto = ({ route, navigation }) => {
-    const { produto } = route.params;
+    const produto = route.params;
+
     const [tamanho, setTamanho] = useState("");
     let [numItens, setNumItens] = useState(0);
 
