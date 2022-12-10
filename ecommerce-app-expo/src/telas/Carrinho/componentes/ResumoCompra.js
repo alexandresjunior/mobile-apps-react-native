@@ -1,6 +1,7 @@
 import React, { useState, useContext, useEffect } from "react";
 import { StyleSheet, View, Text, TouchableOpacity, TextInput } from "react-native";
 import { GlobalContext } from "../../../contexts/GlobalContext";
+import FinalizarCompraModal from "./FinalizarCompraModal";
 
 const ResumoCompra = ({ item }) => {
     const { numItens } = useContext(GlobalContext);
@@ -15,6 +16,8 @@ const ResumoCompra = ({ item }) => {
     const taxa = subtotal === 0 ? 0 : 20;
 
     const total = subtotal - voucher + taxa;
+
+    const [modalVisible, setModalVisible] = useState(false);
 
     return (
         <>
@@ -54,7 +57,9 @@ const ResumoCompra = ({ item }) => {
                 <Text style={estilos.titulo}>R$ {total}</Text>
             </View>
 
-            <TouchableOpacity style={estilos.botao} onPress={() => { }}>
+            <FinalizarCompraModal modalVisible={modalVisible} setModalVisible={setModalVisible} />
+
+            <TouchableOpacity style={estilos.botao} onPress={() => setModalVisible(true)}>
                 <Text style={estilos.textoBotao}>Finalizar Compra</Text>
             </TouchableOpacity>
         </>
