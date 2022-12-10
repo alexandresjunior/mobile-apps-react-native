@@ -1,5 +1,5 @@
 import React from "react";
-import { StyleSheet, View, Text, TouchableOpacity, TextInput } from "react-native";
+import { StyleSheet, View, Text, TouchableOpacity, TextInput, AsyncStorage } from "react-native";
 import MaterialCommunityIcon from "react-native-vector-icons/MaterialCommunityIcons";
 import Checkbox from 'expo-checkbox';
 import NavBar from "./components/NavBar";

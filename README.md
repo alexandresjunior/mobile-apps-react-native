@@ -41,3 +41,4 @@ Ao longo do curso serão abordados os itens acima no decorrer do desenvolvimento
 * [Ionicons](https://ionic.io/ionicons)
 * [React Navigation - Documentação Oficial](https://reactnavigation.org/docs/getting-started)
 * [REST APIs com JSON server](https://www.alura.com.br/artigos/react-native-rest-apis-json-server)
+* [AsyncStorage (Deprecated)](https://react-native-async-storage.github.io/async-storage/docs/install/)
