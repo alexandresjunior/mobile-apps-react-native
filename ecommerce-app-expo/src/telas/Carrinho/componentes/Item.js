@@ -4,9 +4,16 @@ import AntDesignIcon from "react-native-vector-icons/AntDesign";
 import FontAwesomeIcon from "react-native-vector-icons/FontAwesome";
 import modelo1 from "../../../../assets/modelo_1.png";
 import { GlobalContext } from "../../../contexts/GlobalContext";
+import { removerItemDoCarrinho } from "../../../servicos/local/Carrinho";
 
-const Item = ({ item, tamanho }) => {
+const Item = ({ item }) => {
     const { numItens, decrementarNumItens, incrementarNumItens } = useContext(GlobalContext);
+
+    console.log(item);
+
+    const removerItem = async () => {
+        await removerItemDoCarrinho();
+    }
 
     return (
         <View style={[estilos.container, estilos.conteudo]}>
@@ -14,15 +21,15 @@ const Item = ({ item, tamanho }) => {
 
             <View>
                 <View style={[estilos.conteudo, { width: 220 }]}>
-                    <Text style={{ fontSize: 14 }}>{item.nome}</Text>
+                    <Text style={{ fontSize: 14 }}>{item.nomeItem}</Text>
 
-                    <TouchableOpacity onPress={() => { }}>
+                    <TouchableOpacity onPress={() => { removerItem(item) }}>
                         <FontAwesomeIcon name="trash-o" size={20} color="#000000" />
                     </TouchableOpacity>
                 </View>
 
                 <View style={estilos.conteudo}>
-                    <Text style={{ fontSize: 12, marginTop: 10 }}>Tamanho: {tamanho}</Text>
+                    <Text style={{ fontSize: 12, marginTop: 10 }}>Tamanho: {item.tamanho}</Text>
                 </View>
 
                 <View style={estilos.conteudo}>

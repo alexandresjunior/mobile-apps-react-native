@@ -1,8 +1,13 @@
 import React from "react";
 import { StyleSheet, View, Text, TouchableOpacity, TextInput } from "react-native";
 import AntDesignIcon from "react-native-vector-icons/AntDesign";
+import { limparCarrinho } from "../../../servicos/local/Carrinho";
 
 const Header = ({ navigation }) => {
+    const removerItens = async () => {
+        await limparCarrinho();
+    }
+
     return (
         <View style={estilos.container}>
             <TouchableOpacity onPress={() => { navigation.goBack() }}>
@@ -11,7 +16,7 @@ const Header = ({ navigation }) => {
 
             <Text style={estilos.secao}>Minhas Compras</Text>
 
-            <TouchableOpacity onPress={() => { }}>
+            <TouchableOpacity onPress={() => removerItens()}>
                 <Text style={estilos.link}>Limpar</Text>
             </TouchableOpacity>
         </View>

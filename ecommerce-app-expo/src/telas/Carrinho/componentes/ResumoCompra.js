@@ -3,7 +3,7 @@ import { StyleSheet, View, Text, TouchableOpacity, TextInput } from "react-nativ
 import { GlobalContext } from "../../../contexts/GlobalContext";
 import FinalizarCompraModal from "./FinalizarCompraModal";
 
-const ResumoCompra = ({ item }) => {
+const ResumoCompra = ({ item, navigation }) => {
     const { numItens } = useContext(GlobalContext);
 
     let [subtotal, setSubtotal] = useState(0);
@@ -57,7 +57,11 @@ const ResumoCompra = ({ item }) => {
                 <Text style={estilos.titulo}>R$ {total}</Text>
             </View>
 
-            <FinalizarCompraModal modalVisible={modalVisible} setModalVisible={setModalVisible} />
+            <FinalizarCompraModal
+                modalVisible={modalVisible}
+                setModalVisible={setModalVisible}
+                navigation={navigation}
+            />
 
             <TouchableOpacity style={estilos.botao} onPress={() => setModalVisible(true)}>
                 <Text style={estilos.textoBotao}>Finalizar Compra</Text>

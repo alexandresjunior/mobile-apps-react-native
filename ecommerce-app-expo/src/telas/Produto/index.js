@@ -7,6 +7,7 @@ import modelo3 from "../../../assets/modelo_3.png";
 import modelo4 from "../../../assets/modelo_4.png";
 import AntDesignIcon from "react-native-vector-icons/AntDesign";
 import { GlobalContext } from "../../contexts/GlobalContext";
+import { adicionarItemNoCarrinho } from "../../servicos/local/Carrinho";
 
 const Produto = ({ route, navigation }) => {
     const produto = route.params;
@@ -15,8 +16,17 @@ const Produto = ({ route, navigation }) => {
 
     const [tamanho, setTamanho] = useState("");
 
-    const aoClicarEmAdicionarAoCarrinho = () => {
-        navigation.navigate("Carrinho", { item: produto, tamanho: tamanho });
+    const aoClicarEmAdicionarAoCarrinho = async () => {
+        const item = {
+            nome: produto.nome,
+            tamanho: tamanho,
+            precoUnitario: produto.preco,
+            quantidade: numItens
+        }
+        await adicionarItemNoCarrinho(item);
+        console.log("adicionado no carrinho!!")
+        
+        navigation.navigate("Carrinho");
     }
 
     return (

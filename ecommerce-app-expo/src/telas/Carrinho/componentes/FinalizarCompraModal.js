@@ -1,7 +1,14 @@
 import React from "react";
 import { Modal, StyleSheet, Text, TouchableOpacity, View } from "react-native";
+import { deletarCarrinho } from "../../../servicos/local/Carrinho";
 
-const FinalizarCompraModal = ({ modalVisible, setModalVisible }) => {
+const FinalizarCompraModal = ({ modalVisible, setModalVisible, navigation }) => {
+    const finalizarCompra = async () => {
+        setModalVisible(!modalVisible);
+        // await deletarCarrinho();
+        navigation.navigate("Home");
+    }
+
     return (
         <View style={styles.centeredView}>
             <Modal
@@ -17,9 +24,9 @@ const FinalizarCompraModal = ({ modalVisible, setModalVisible }) => {
                         <Text style={styles.modalText}>Compra finalizada!</Text>
                         <TouchableOpacity
                             style={[styles.button, styles.buttonClose]}
-                            onPress={() => setModalVisible(!modalVisible)}
+                            onPress={() => finalizarCompra()}
                         >
-                            <Text style={styles.textStyle}>Fechar</Text>
+                            <Text style={styles.textStyle}>Voltar para Home</Text>
                         </TouchableOpacity>
                     </View>
                 </View>

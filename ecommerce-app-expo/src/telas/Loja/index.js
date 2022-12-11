@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { SafeAreaView, StyleSheet, View, ScrollView } from "react-native";
 import cartaoCompras1 from "../../../assets/cartao_compras_icon_1.png";
 import cartaoCompras2 from "../../../assets/cartao_compras_icon_2.png";
@@ -9,9 +9,15 @@ import SectionHeader from "../../componentes/headers/SectionHeader";
 import Header from "./componentes/Header";
 import ItensRecomendados from "./componentes/ItensRecomendados";
 import { useProdutos } from "../../hooks/useProdutos";
+import { criaTabelaCarrinho } from "../../servicos/local/Carrinho";
 
 const Loja = () => {
     const [produtos] = useProdutos();
+
+    useEffect(() => {
+        criaTabelaCarrinho();
+        console.log("Tabela criada!")
+    }, []);
 
     return (
         <SafeAreaView style={estilos.tela}>
