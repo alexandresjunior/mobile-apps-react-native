@@ -5,8 +5,10 @@ import FontAwesomeIcon from "react-native-vector-icons/FontAwesome";
 import modelo1 from "../../../../assets/modelo_1.png";
 import { GlobalContext } from "../../../contexts/GlobalContext";
 
-const Item = ({ item, tamanho }) => {
+const Item = ({ item }) => {
     const { numItens, decrementarNumItens, incrementarNumItens } = useContext(GlobalContext);
+
+    console.log("item" + item)
 
     return (
         <View style={[estilos.container, estilos.conteudo]}>
@@ -22,7 +24,7 @@ const Item = ({ item, tamanho }) => {
                 </View>
 
                 <View style={estilos.conteudo}>
-                    <Text style={{ fontSize: 12, marginTop: 10 }}>Tamanho: {tamanho}</Text>
+                    <Text style={{ fontSize: 12, marginTop: 10 }}>Tamanho: {""}</Text>
                 </View>
 
                 <View style={estilos.conteudo}>
