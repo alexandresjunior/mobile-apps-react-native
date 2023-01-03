@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <title>Contador</title>
+        <script>
+            let contador = 0;
+            
+            function contar() {
+                contador++;
+                document.querySelector('h1').innerHTML = contador;
+            }
+        </script>
+    </head>
+    <body>
+        <h1>0</h1>
+        <button onclick="contar()">Incrementar</button>
+    </body>
+</html>
