@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <title>Cores</title>
+        <script>
+            /* Arrow Functions */
+            document.addEventListener('DOMContentLoaded', () => {
+                document.querySelectorAll('button').forEach((button) => {
+                    button.onclick = () => {
+                        document.querySelector("#ola").style.color = button.dataset.color;
+                    }
+                });
+            });
+
+        </script>
+    </head>
+    <body>
+        <h1 id="ola">Hello</h1>
+        <button data-color="red">Red</button>
+        <button data-color="blue">Blue</button>
+        <button data-color="green">Green</button>
+    </body>
+</html>

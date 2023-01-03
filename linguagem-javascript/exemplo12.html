@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <title>Cores</title>
+        <script>
+            document.addEventListener('DOMContentLoaded', function() {
+                document.querySelectorAll('button').forEach(function(button) {
+                    button.onclick = function() {
+                        document.querySelector("#ola").style.color = button.dataset.color;
+                    }
+                });
+                console.log(document.querySelectorAll('button'));
+            });
+
+        </script>
+    </head>
+    <body>
+        <h1 id="ola">Hello</h1>
+        <button data-color="red">Red</button>
+        <button data-color="blue">Blue</button>
+        <button data-color="green">Green</button>
+    </body>
+</html>

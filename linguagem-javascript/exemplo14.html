@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <title>Cores</title>
+        <script>
+            document.addEventListener('DOMContentLoaded', function() {
+                document.querySelector('select').onchange = function() {
+                    document.querySelector('#ola').style.color = this.value;
+                }
+            });
+
+            /* Outros eventos: 
+                - onclick
+                - onmouseover
+                - onkeydown
+                - onkeyup
+                - onload
+                - onblur
+            */
+        </script>
+    </head>
+    <body>
+        <h1 id="ola">Olá</h1>
+        <select>
+            <option value="black">Preto</option>
+            <option value="red">Vermelho</option>
+            <option value="blue">Azul</option>
+            <option value="green">Verde</option>
+        </select>
+    </body>
+</html>
