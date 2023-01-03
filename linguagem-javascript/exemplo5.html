@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <title>Saudação</title>
+        <script>
+            function saudar() {
+                const header = document.querySelector('h1');
+
+                if (header.innerHTML === 'Olá!') {
+                    header.innerHTML = 'Tchau!';
+                }
+                else {
+                    header.innerHTML = 'Olá!';
+                }
+            }
+        </script>
+    </head>
+    <body>
+        <h1>Olá!</h1>
+        <button onclick="saudar()">Clique Aqui</button>
+    </body>
+</html>
