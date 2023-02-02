@@ -4,6 +4,7 @@ import modelo1 from "../../../../assets/modelo_1.png";
 import modelo2 from "../../../../assets/modelo_2.png";
 import modelo3 from "../../../../assets/modelo_3.png";
 import modelo4 from "../../../../assets/modelo_4.png";
+import Header from './Header';
 
 const imagens = [modelo1, modelo2, modelo3, modelo4];
 const WIDTH = Dimensions.get('window').width;
@@ -24,6 +25,7 @@ const Carousel = () => {
 
     return (
         <View style={estilos.wrap}>
+            <Header />
             <ScrollView
                 onScroll={({ nativeEvent }) => handleOnChange(nativeEvent)}
                 showsHorizontalScrollIndicator={false}

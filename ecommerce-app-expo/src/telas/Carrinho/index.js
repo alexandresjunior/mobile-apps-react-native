@@ -1,24 +1,25 @@
-import React from "react";
+import React, { useContext } from "react";
 import { SafeAreaView, StyleSheet, FlatList } from "react-native";
+import { GlobalContext } from "../../contexts/GlobalContext";
 import Header from "./componentes/Header";
 import Item from "./componentes/Item";
 import ResumoCompra from "./componentes/ResumoCompra";
 
-const Carrinho = ({ route, navigation }) => {
-    const { item, tamanho } = route.params;
+const Carrinho = () => {
+    const { itens } = useContext(GlobalContext);
 
     return (
         <SafeAreaView style={estilos.tela}>
             <FlatList
                 style={estilos.lista}
-                data={[item]}
-                renderItem={({ item }) => <Item item={item} tamanho={tamanho} />}
+                data={itens}
+                renderItem={({ item }) => <Item item={item} />}
                 keyExtractor={item => item.id}
                 ListHeaderComponent={() => {
-                    return <Header navigation={navigation} />
+                    return <Header />
                 }}
                 ListFooterComponent={() => {
-                    return <ResumoCompra item={item} />
+                    return <ResumoCompra />
                 }}
             />
         </SafeAreaView>

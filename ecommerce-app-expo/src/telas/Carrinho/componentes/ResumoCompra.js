@@ -3,14 +3,16 @@ import { StyleSheet, View, Text, TouchableOpacity, TextInput } from "react-nativ
 import { GlobalContext } from "../../../contexts/GlobalContext";
 import FinalizarCompraModal from "./FinalizarCompraModal";
 
-const ResumoCompra = ({ item }) => {
-    const { numItens } = useContext(GlobalContext);
+const ResumoCompra = () => {
+    const { itens } = useContext(GlobalContext);
 
-    let [subtotal, setSubtotal] = useState(0);
+    const [subtotal, setSubtotal] = useState(0);
 
     useEffect(() => {
-        setSubtotal(item.preco * numItens)
-    }, [numItens]);
+        for (let i in itens) {
+            setSubtotal(subtotal + itens[i].produto.preco * itens[i].quantidade)
+        }
+    }, [itens]);
 
     const voucher = subtotal === 0 ? 0 : 100;
     const taxa = subtotal === 0 ? 0 : 20;

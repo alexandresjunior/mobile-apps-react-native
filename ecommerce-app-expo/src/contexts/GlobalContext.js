@@ -3,24 +3,27 @@ import { createContext, useState } from "react";
 export const GlobalContext = createContext({});
 
 export const InfoProvider = ({ children }) => {
-    let [numItens, setNumItens] = useState(0);
+    const [id, setId] = useState(1);
+    const [itens, setItens] = useState([]);
 
-    const decrementarNumItens = (event) => {
-        event.preventDefault();
+    const adicionarItem = (item, novo) => {
+        setItens([...itens, item])
 
-        if (numItens > 0) {
-            setNumItens(--numItens);
-        }
+        novo && setId(id + 1)
     }
 
-    const incrementarNumItens = (event) => {
-        event.preventDefault();
+    const removerItem = (item) => {
+        const lista = itens.filter((_, index) => index !== item.id);
+        setItens(lista);
+    }
 
-        setNumItens(++numItens);
+    const atualizarItem = (item) => {
+        removerItem(item);
+        adicionarItem(item, false);
     }
 
     return (
-        <GlobalContext.Provider value={{ numItens, decrementarNumItens, incrementarNumItens }}>
+        <GlobalContext.Provider value={{ id, itens, adicionarItem, removerItem, atualizarItem }}>
             {children}
         </GlobalContext.Provider>
     )

@@ -8,15 +8,29 @@ import modelo4 from "../../../assets/modelo_4.png";
 import AntDesignIcon from "react-native-vector-icons/AntDesign";
 import { GlobalContext } from "../../contexts/GlobalContext";
 
-const Produto = ({ route, navigation }) => {
+const Produto = ({ route }) => {
     const produto = route.params;
 
-    const { numItens, decrementarNumItens, incrementarNumItens } = useContext(GlobalContext);
+    const { id, adicionarItem } = useContext(GlobalContext);
 
-    const [tamanho, setTamanho] = useState("");
+    const [numItens, setNumItens] = useState(1);
+    const [tamanho, setTamanho] = useState("P");
 
-    const aoClicarEmAdicionarAoCarrinho = () => {
-        navigation.navigate("Carrinho", { item: produto, tamanho: tamanho });
+    const item = {
+        id: id,
+        produto: produto,
+        quantidade: numItens,
+        tamanho: tamanho
+    }
+
+    const decrementarNumItens = (event) => {
+        event.preventDefault();
+        numItens > 1 && setNumItens(numItens - 1);
+    }
+
+    const incrementarNumItens = (event) => {
+        event.preventDefault();
+        setNumItens(numItens + 1);
     }
 
     return (
@@ -105,19 +119,25 @@ const Produto = ({ route, navigation }) => {
                 <View style={{ flexDirection: "row", alignItems: 'center', justifyContent: "space-between", marginTop: 25 }}>
                     <View style={estilos.botao}>
                         <View style={{ flexDirection: "row", alignItems: 'center' }}>
-                            <TouchableOpacity style={[estilos.botaoNumItens, { marginHorizontal: 10 }]} onPress={decrementarNumItens}>
+                            <TouchableOpacity
+                                style={[estilos.botaoNumItens, { marginHorizontal: 10 }]}
+                                onPress={decrementarNumItens}
+                            >
                                 <AntDesignIcon name="minus" size={15} color="#000000" />
                             </TouchableOpacity>
 
                             <Text style={{ fontSize: 20, fontWeight: "bold" }}>{numItens}</Text>
 
-                            <TouchableOpacity style={[estilos.botaoNumItens, { marginHorizontal: 10 }]} onPress={incrementarNumItens}>
+                            <TouchableOpacity
+                                style={[estilos.botaoNumItens, { marginHorizontal: 10 }]}
+                                onPress={incrementarNumItens}
+                            >
                                 <AntDesignIcon name="plus" size={15} color="#000000" />
                             </TouchableOpacity>
                         </View>
                     </View>
 
-                    <TouchableOpacity style={estilos.botaoAddCarrinho} onPress={() => aoClicarEmAdicionarAoCarrinho()}>
+                    <TouchableOpacity style={estilos.botaoAddCarrinho} onPress={() => adicionarItem(item, true)}>
                         <Text style={estilos.textoBotaoAddCarrinho}>Adicionar ao Carrinho</Text>
                     </TouchableOpacity>
                 </View>

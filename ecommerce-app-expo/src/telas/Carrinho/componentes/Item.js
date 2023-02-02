@@ -5,8 +5,8 @@ import FontAwesomeIcon from "react-native-vector-icons/FontAwesome";
 import modelo1 from "../../../../assets/modelo_1.png";
 import { GlobalContext } from "../../../contexts/GlobalContext";
 
-const Item = ({ item, tamanho }) => {
-    const { numItens, decrementarNumItens, incrementarNumItens } = useContext(GlobalContext);
+const Item = ({ item }) => {
+    const { removerItem, atualizarItem } = useContext(GlobalContext);
 
     return (
         <View style={[estilos.container, estilos.conteudo]}>
@@ -14,28 +14,30 @@ const Item = ({ item, tamanho }) => {
 
             <View>
                 <View style={[estilos.conteudo, { width: 220 }]}>
-                    <Text style={{ fontSize: 14 }}>{item.nome}</Text>
+                    <Text style={{ fontSize: 14 }}>{item.produto.nome}</Text>
 
-                    <TouchableOpacity onPress={() => { }}>
+                    <TouchableOpacity onPress={() => removerItem(item)}>
                         <FontAwesomeIcon name="trash-o" size={20} color="#000000" />
                     </TouchableOpacity>
                 </View>
 
                 <View style={estilos.conteudo}>
-                    <Text style={{ fontSize: 12, marginTop: 10 }}>Tamanho: {tamanho}</Text>
+                    <Text style={{ fontSize: 12, marginTop: 10 }}>Tamanho: {item.tamanho}</Text>
                 </View>
 
                 <View style={estilos.conteudo}>
-                    <Text style={{ fontSize: 18, fontWeight: "bold" }}>R$ {item.preco}</Text>
+                    <Text style={{ fontSize: 18, fontWeight: "bold" }}>R$ {item.produto.preco}</Text>
 
                     <View style={estilos.conteudo}>
-                        <TouchableOpacity style={[estilos.botaoNumItens, { marginHorizontal: 10 }]} onPress={decrementarNumItens}>
+                        <TouchableOpacity
+                            style={[estilos.botaoNumItens, { marginHorizontal: 10 }]}
+                            onPress={() => { atualizarItem(item) }}>
                             <AntDesignIcon name="minus" size={15} color="#000000" />
                         </TouchableOpacity>
 
-                        <Text style={{ fontSize: 20, fontWeight: "bold" }}>{numItens}</Text>
+                        <Text style={{ fontSize: 20, fontWeight: "bold" }}>{item.quantidade}</Text>
 
-                        <TouchableOpacity style={[estilos.botaoNumItens, { marginStart: 10 }]} onPress={incrementarNumItens}>
+                        <TouchableOpacity style={[estilos.botaoNumItens, { marginStart: 10 }]} onPress={() => atualizarItem(item)}>
                             <AntDesignIcon name="plus" size={15} color="#000000" />
                         </TouchableOpacity>
                     </View>
