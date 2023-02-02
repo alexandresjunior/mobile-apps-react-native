@@ -54,6 +54,7 @@ const SignIn = () => {
                     style={estilos.input}
                     placeholder="Senha"
                     keyboardType="password"
+                    secureTextEntry={true}
                     onChangeText={(senha) => {
                         setSenha(senha)
                     }}
