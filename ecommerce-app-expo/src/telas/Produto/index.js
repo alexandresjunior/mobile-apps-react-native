@@ -7,6 +7,7 @@ import modelo3 from "../../../assets/modelo_3.png";
 import modelo4 from "../../../assets/modelo_4.png";
 import AntDesignIcon from "react-native-vector-icons/AntDesign";
 import { GlobalContext } from "../../contexts/GlobalContext";
+import CompraModal from "../../componentes/CompraModal";
 
 const Produto = ({ route }) => {
     const produto = route.params;
@@ -15,6 +16,8 @@ const Produto = ({ route }) => {
 
     const [numItens, setNumItens] = useState(1);
     const [tamanho, setTamanho] = useState("P");
+
+    const [modalVisible, setModalVisible] = useState(false);
 
     const item = {
         id: id,
@@ -137,7 +140,19 @@ const Produto = ({ route }) => {
                         </View>
                     </View>
 
-                    <TouchableOpacity style={estilos.botaoAddCarrinho} onPress={() => adicionarItem(item, true)}>
+                    <CompraModal
+                        mensagem={"Item adicionado ao carrinho!"}
+                        botao={{ texto: "Adicionar novo item", redirectTo: "Loja" }}
+                        modalVisible={modalVisible}
+                        setModalVisible={setModalVisible}
+                    />
+
+                    <TouchableOpacity
+                        style={estilos.botaoAddCarrinho}
+                        onPress={() => {
+                            setModalVisible(true)
+                            adicionarItem(item, true)
+                        }}>
                         <Text style={estilos.textoBotaoAddCarrinho}>Adicionar ao Carrinho</Text>
                     </TouchableOpacity>
                 </View>

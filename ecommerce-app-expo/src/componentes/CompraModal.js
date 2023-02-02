@@ -1,7 +1,10 @@
+import { useNavigation } from "@react-navigation/native";
 import React from "react";
 import { Modal, StyleSheet, Text, TouchableOpacity, View } from "react-native";
 
-const FinalizarCompraModal = ({ modalVisible, setModalVisible }) => {
+const CompraModal = ({ mensagem, botao, modalVisible, setModalVisible }) => {
+    const navigation = useNavigation();
+
     return (
         <View style={styles.centeredView}>
             <Modal
@@ -14,12 +17,15 @@ const FinalizarCompraModal = ({ modalVisible, setModalVisible }) => {
             >
                 <View style={styles.centeredView}>
                     <View style={styles.modalView}>
-                        <Text style={styles.modalText}>Compra finalizada!</Text>
+                        <Text style={styles.modalText}>{mensagem}</Text>
                         <TouchableOpacity
                             style={[styles.button, styles.buttonClose]}
-                            onPress={() => setModalVisible(!modalVisible)}
+                            onPress={() => {
+                                setModalVisible(!modalVisible)
+                                navigation.navigate("Loja")
+                            }}
                         >
-                            <Text style={styles.textStyle}>Fechar</Text>
+                            <Text style={styles.textStyle}>{botao.texto}</Text>
                         </TouchableOpacity>
                     </View>
                 </View>
@@ -71,4 +77,4 @@ const styles = StyleSheet.create({
     }
 });
 
-export default FinalizarCompraModal;
+export default CompraModal;

@@ -1,10 +1,13 @@
 import { useNavigation } from "@react-navigation/native";
-import React from "react";
+import React, { useContext } from "react";
 import { StyleSheet, View, Text, TouchableOpacity } from "react-native";
 import AntDesignIcon from "react-native-vector-icons/AntDesign";
+import { GlobalContext } from "../../../contexts/GlobalContext";
 
 const Header = () => {
     const navigation = useNavigation();
+
+    const { esvaziarCarrinho } = useContext(GlobalContext);
 
     return (
         <View style={estilos.container}>
@@ -14,7 +17,7 @@ const Header = () => {
 
             <Text style={estilos.secao}>Minhas Compras</Text>
 
-            <TouchableOpacity onPress={() => { }}>
+            <TouchableOpacity onPress={esvaziarCarrinho}>
                 <Text style={estilos.link}>Limpar</Text>
             </TouchableOpacity>
         </View>

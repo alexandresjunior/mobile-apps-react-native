@@ -1,7 +1,7 @@
 import React, { useState, useContext, useEffect } from "react";
 import { StyleSheet, View, Text, TouchableOpacity, TextInput } from "react-native";
 import { GlobalContext } from "../../../contexts/GlobalContext";
-import FinalizarCompraModal from "./FinalizarCompraModal";
+import CompraModal from "../../../componentes/CompraModal";
 
 const ResumoCompra = () => {
     const { itens } = useContext(GlobalContext);
@@ -59,7 +59,12 @@ const ResumoCompra = () => {
                 <Text style={estilos.titulo}>R$ {total}</Text>
             </View>
 
-            <FinalizarCompraModal modalVisible={modalVisible} setModalVisible={setModalVisible} />
+            <CompraModal
+                mensagem={"Compra finalizada!"}
+                botao={{ texto: "Nova compra", redirectTo: "Loja" }}
+                modalVisible={modalVisible}
+                setModalVisible={setModalVisible}
+            />
 
             <TouchableOpacity style={estilos.botao} onPress={() => setModalVisible(true)}>
                 <Text style={estilos.textoBotao}>Finalizar Compra</Text>

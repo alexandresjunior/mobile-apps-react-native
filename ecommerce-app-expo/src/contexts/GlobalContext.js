@@ -22,8 +22,12 @@ export const InfoProvider = ({ children }) => {
         adicionarItem(item, false);
     }
 
+    const esvaziarCarrinho = () => {
+        setItens([]);
+    }
+
     return (
-        <GlobalContext.Provider value={{ id, itens, adicionarItem, removerItem, atualizarItem }}>
+        <GlobalContext.Provider value={{ id, itens, adicionarItem, removerItem, atualizarItem, esvaziarCarrinho }}>
             {children}
         </GlobalContext.Provider>
     )
