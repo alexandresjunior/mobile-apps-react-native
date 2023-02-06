@@ -4,7 +4,7 @@ import { StyleSheet, View, Text, TouchableOpacity } from "react-native";
 import AntDesignIcon from "react-native-vector-icons/AntDesign";
 import { GlobalContext } from "../../../contextos/GlobalContext";
 
-const Header = () => {
+const CabecalhoCarrinho = () => {
     const navigation = useNavigation();
 
     const { esvaziarCarrinho } = useContext(GlobalContext);
@@ -24,7 +24,7 @@ const Header = () => {
     )
 }
 
-export default Header;
+export default CabecalhoCarrinho;
 
 const estilos = StyleSheet.create({
     container: {

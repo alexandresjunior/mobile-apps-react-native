@@ -9,90 +9,123 @@ const ResumoCompra = () => {
     const [subtotal, setSubtotal] = useState(0);
 
     useEffect(() => {
-        for (let i in itens) {
-            setSubtotal(subtotal + itens[i].produto.preco * itens[i].quantidade)
-        }
-    }, [itens]);
+        let soma = 0;
 
-    const voucher = subtotal === 0 ? 0 : 100;
-    const taxa = subtotal === 0 ? 0 : 20;
+        itens.map((item) => {
+            const numItens = item.quantidade;
+            const preco = item.produto.preco;
 
-    const total = subtotal - voucher + taxa;
+            soma += numItens * preco;
+        })
 
-    const [modalVisible, setModalVisible] = useState(false);
+        setSubtotal(soma)
+    }, [itens])
+
+    let voucher = subtotal === 0 ? 0 : 100;
+    let taxaDeEntrega = subtotal === 0 ? 0 : 20;
+    let total = subtotal - voucher + taxaDeEntrega;
+
+    const [visivel, setVisivel] = useState(false);
 
     return (
-        <>
-            <View style={estilos.conteudo}>
+        <View>
+            <View style={estilos.row}>
                 <TextInput
                     style={estilos.input}
-                    placeholder="Código Promocional"
+                    placeholder={"Código Promocional"}
                     keyboardType="text"
                     onChangeText={() => { }}
-                    defaultValue={""}
+                    defaultValue=""
                 />
 
-                <TouchableOpacity style={estilos.botaoPromocao} onPress={() => { }}>
-                    <Text style={estilos.textoBotaoPromocao}>Aplicar</Text>
+                <TouchableOpacity onPress={() => { }} style={estilos.botaoPromocao}>
+                    <Text style={estilos.textoBotao}>Aplicar</Text>
                 </TouchableOpacity>
             </View>
 
-            <View style={estilos.conteudo}>
-                <Text style={estilos.subtitulo}>Sub-total</Text>
-                <Text style={estilos.texto}>R$ {subtotal}</Text>
+            <View style={estilos.row}>
+                <Text style={estilos.label}>Sub-total</Text>
+                <Text style={estilos.valor}>R$ {subtotal}</Text>
             </View>
 
-            <View style={estilos.conteudo}>
-                <Text style={estilos.subtitulo}>Voucher</Text>
-                <Text style={estilos.texto}>- R$ {voucher}</Text>
+            <View style={estilos.row}>
+                <Text style={estilos.label}>Voucher</Text>
+                <Text style={estilos.valor}>- R$ {voucher}</Text>
             </View>
 
-            <View style={estilos.conteudo}>
-                <Text style={estilos.subtitulo}>Taxa de Entrega</Text>
-                <Text style={estilos.texto}>R$ {taxa}</Text>
+            <View style={estilos.row}>
+                <Text style={estilos.label}>Taxa de Entrega</Text>
+                <Text style={estilos.valor}>R$ {taxaDeEntrega}</Text>
             </View>
 
             <View style={estilos.separador} />
 
-            <View style={estilos.conteudo}>
-                <Text style={estilos.titulo}>Total</Text>
-                <Text style={estilos.titulo}>R$ {total}</Text>
+            <View style={estilos.row}>
+                <Text style={estilos.valor}>Total</Text>
+                <Text style={estilos.valor}>R$ {total}</Text>
             </View>
 
-            <CompraModal
-                mensagem={"Compra finalizada!"}
-                botao={{ texto: "Nova compra", redirectTo: "Loja" }}
-                modalVisible={modalVisible}
-                setModalVisible={setModalVisible}
-            />
-
-            <TouchableOpacity style={estilos.botao} onPress={() => setModalVisible(true)}>
+            <TouchableOpacity onPress={() => { setVisivel(true) }} style={estilos.botao}>
                 <Text style={estilos.textoBotao}>Finalizar Compra</Text>
             </TouchableOpacity>
-        </>
+
+            <CompraModal
+                visivel={visivel}
+                setVisivel={setVisivel}
+                texto={"Compra finalizada!"}
+                botao={{
+                    texto: "Fechar",
+                    link: "Home"
+                }}
+                finalizarCompra={true}
+            />
+        </View>
     )
 }
 
 export default ResumoCompra;
 
 const estilos = StyleSheet.create({
-    conteudo: {
+    row: {
         flexDirection: "row",
         justifyContent: "space-between",
         alignItems: "center",
         marginTop: 15
     },
-    titulo: {
-        fontSize: 18,
-        fontWeight: "bold"
+    input: {
+        borderRadius: 5,
+        borderColor: "#CACACA",
+        borderWidth: 1,
+        padding: 15,
+        backgroundColor: "#fff",
+        flex: 0.9
     },
-    subtitulo: {
+    botaoPromocao: {
+        backgroundColor: "#FF7A00",
+        alignSelf: "stretch",
+        justifyContent: "center",
+        borderRadius: 5,
+        borderWidth: 1,
+        borderColor: "#FF7A00",
+        width: 100
+    },
+    textoBotao: {
+        fontWeight: "bold",
+        color: "#fff",
+        textAlign: "center"
+    },
+    label: {
         fontSize: 18,
         color: "#7B7B7B"
     },
-    texto: {
+    valor: {
         fontSize: 18,
         fontWeight: "600"
+    },
+    separador: {
+        borderBottomColor: "#CACACA",
+        marginTop: 15,
+        borderBottomWidth: 1
     },
     botao: {
         backgroundColor: "#FF7A00",
@@ -104,37 +137,5 @@ const estilos = StyleSheet.create({
         margin: 25,
         padding: 15,
         alignSelf: "center"
-    },
-    textoBotao: {
-        textAlign: "center",
-        color: "#FFFFFF",
-        fontWeight: "bold"
-    },
-    separador: {
-        marginTop: 15,
-        borderBottomWidth: 1,
-        borderBottomColor: "#CACACA"
-    },
-    input: {
-        borderRadius: 5,
-        borderColor: "#CACACA",
-        borderWidth: 1,
-        padding: 15,
-        flex: 0.9,
-        backgroundColor: "white"
-    },
-    botaoPromocao: {
-        backgroundColor: "#FF7A00",
-        alignSelf: "stretch",
-        justifyContent: "center",
-        borderRadius: 5,
-        borderWidth: 1,
-        borderColor: "#FF7A00",
-        width: 100,
-    },
-    textoBotaoPromocao: {
-        textAlign: "center",
-        color: "#FFFFFF",
-        fontWeight: "bold"
     }
 })
