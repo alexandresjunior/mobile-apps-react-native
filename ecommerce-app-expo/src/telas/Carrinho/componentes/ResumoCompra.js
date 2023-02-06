@@ -1,6 +1,6 @@
 import React, { useState, useContext, useEffect } from "react";
 import { StyleSheet, View, Text, TouchableOpacity, TextInput } from "react-native";
-import { GlobalContext } from "../../../contexts/GlobalContext";
+import { GlobalContext } from "../../../contextos/GlobalContext";
 import CompraModal from "../../../componentes/CompraModal";
 
 const ResumoCompra = () => {

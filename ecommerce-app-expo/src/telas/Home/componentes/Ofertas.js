@@ -1,13 +1,13 @@
 import React from "react";
 import { StyleSheet, ScrollView } from "react-native";
-import VerticalCard from "../../../componentes/cards/VerticalCard";
-import SectionHeader from "../../../componentes/headers/SectionHeader";
+import CartaoVertical from "../../../componentes/cartoes/CartaoVertical";
+import CabecalhoSecao from "../../../componentes/cabecalhos/CabecalhoSecao";
 import imgOferta1 from "../../../../assets/oferta_1.png";
 
 const Ofertas = ({ ofertas }) => {
     return (
         <>
-            <SectionHeader titulo={"Ofertas Incríveis"} link={"Ver Tudo"} />
+            <CabecalhoSecao titulo={"Ofertas Incríveis"} link={"Ver Tudo"} />
             <ScrollView
                 showsHorizontalScrollIndicator={false}
                 scrollEventThrottle={0}
@@ -18,7 +18,7 @@ const Ofertas = ({ ofertas }) => {
                 {
                     ofertas?.map((oferta, index) => {
                         return (
-                            <VerticalCard
+                            <CartaoVertical
                                 imagem={imgOferta1}
                                 key={index}
                             />

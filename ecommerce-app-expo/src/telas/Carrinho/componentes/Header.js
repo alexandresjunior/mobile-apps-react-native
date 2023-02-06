@@ -2,7 +2,7 @@ import { useNavigation } from "@react-navigation/native";
 import React, { useContext } from "react";
 import { StyleSheet, View, Text, TouchableOpacity } from "react-native";
 import AntDesignIcon from "react-native-vector-icons/AntDesign";
-import { GlobalContext } from "../../../contexts/GlobalContext";
+import { GlobalContext } from "../../../contextos/GlobalContext";
 
 const Header = () => {
     const navigation = useNavigation();

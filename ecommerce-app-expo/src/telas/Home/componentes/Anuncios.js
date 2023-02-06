@@ -1,6 +1,6 @@
 import React from "react";
 import { ScrollView } from "react-native";
-import HorizontalCard from "../../../componentes/cards/HorizontalCard";
+import CartaoHorizontal from "../../../componentes/cartoes/CartaoHorizontal";
 import imagem from "../../../../assets/celular_1.png";
 
 const Anuncios = ({ anuncios }) => {
@@ -14,7 +14,7 @@ const Anuncios = ({ anuncios }) => {
             {
                 anuncios?.map((anuncio, index) => {
                     return (
-                        <HorizontalCard
+                        <CartaoHorizontal
                             titulo={anuncio.titulo}
                             texto={anuncio.texto}
                             imagem={imagem}

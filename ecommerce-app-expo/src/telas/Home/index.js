@@ -1,7 +1,7 @@
 import React from "react";
 import { SafeAreaView, ScrollView, StyleSheet } from "react-native";
-import PromoCard from "../../componentes/cards/PromoCard";
-import Header from "./componentes/Header";
+import CartaoPromocao from "../../componentes/cartoes/CartaoPromocao";
+import CabecalhoHome from "./componentes/CabecalhoHome";
 import Anuncios from "./componentes/Anuncios";
 import Ofertas from "./componentes/Ofertas";
 import { useAnuncios } from "../../hooks/useAnuncios";
@@ -14,10 +14,10 @@ const Home = () => {
     return (
         <SafeAreaView style={estilos.tela}>
             <ScrollView showsVerticalScrollIndicator={false}>
-                <Header />
+                <CabecalhoHome />
                 <Anuncios anuncios={anuncios} />
                 <Ofertas ofertas={ofertas} />
-                <PromoCard />
+                <CartaoPromocao />
             </ScrollView>
         </SafeAreaView>
     )

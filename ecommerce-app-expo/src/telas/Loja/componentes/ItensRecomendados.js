@@ -1,13 +1,13 @@
 import React from "react";
 import { StyleSheet, ScrollView } from "react-native";
-import ShopCard from "../../../componentes/cards/ShopCard";
+import CartaoCompra from "../../../componentes/cartoes/CartaoCompra";
 import modelo1 from "../../../../assets/modelo_1.png";
-import SectionHeader from "../../../componentes/headers/SectionHeader";
+import CabecalhoSecao from "../../../componentes/cabecalhos/CabecalhoSecao";
 
 const ItensRecomendados = ({ produtos }) => {
     return (
         <>
-            <SectionHeader titulo={"Itens Recomendados"} link={"Ver Tudo"} />
+            <CabecalhoSecao titulo={"Itens Recomendados"} link={"Ver Tudo"} />
             <ScrollView
                 contentContainerStyle={estilos.container}
                 showsHorizontalScrollIndicator={false}
@@ -17,7 +17,7 @@ const ItensRecomendados = ({ produtos }) => {
                 {
                     produtos?.map((produto, index) => {
                         return (
-                            <ShopCard
+                            <CartaoCompra
                                 imagem={modelo1}
                                 produto={produto}
                                 key={index}

@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import { SafeAreaView, StyleSheet, FlatList } from "react-native";
-import { GlobalContext } from "../../contexts/GlobalContext";
+import { GlobalContext } from "../../contextos/GlobalContext";
 import Header from "./componentes/Header";
 import Item from "./componentes/Item";
 import ResumoCompra from "./componentes/ResumoCompra";

@@ -3,7 +3,7 @@ import { Image, StyleSheet, View, Text, TouchableOpacity } from "react-native";
 import AntDesignIcon from "react-native-vector-icons/AntDesign";
 import FontAwesomeIcon from "react-native-vector-icons/FontAwesome";
 import modelo1 from "../../../../assets/modelo_1.png";
-import { GlobalContext } from "../../../contexts/GlobalContext";
+import { GlobalContext } from "../../../contextos/GlobalContext";
 
 const Item = ({ item }) => {
     const { removerItem, atualizarItem } = useContext(GlobalContext);

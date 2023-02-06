@@ -6,7 +6,7 @@ import modelo2 from "../../../assets/modelo_2.png";
 import modelo3 from "../../../assets/modelo_3.png";
 import modelo4 from "../../../assets/modelo_4.png";
 import AntDesignIcon from "react-native-vector-icons/AntDesign";
-import { GlobalContext } from "../../contexts/GlobalContext";
+import { GlobalContext } from "../../contextos/GlobalContext";
 import CompraModal from "../../componentes/CompraModal";
 
 const Produto = ({ route }) => {
