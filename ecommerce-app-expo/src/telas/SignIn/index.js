@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { StyleSheet, View, Text, TouchableOpacity, TextInput } from "react-native";
 import MaterialCommunityIcon from "react-native-vector-icons/MaterialCommunityIcons";
 import Checkbox from 'expo-checkbox';
-import NavBar from "./components/NavBar";
+import BarraDeNavegacao from "./componentes/BarraDeNavegacao";
 import { useNavigation } from '@react-navigation/native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
@@ -29,7 +29,7 @@ const SignIn = () => {
         <>
             <View style={estilos.cabecalho}></View>
 
-            <NavBar />
+            <BarraDeNavegacao />
 
             <View style={estilos.tela}>
                 <Text style={estilos.titulo}>Sign In</Text>

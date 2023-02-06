@@ -4,13 +4,13 @@ import modelo1 from "../../../../assets/modelo_1.png";
 import modelo2 from "../../../../assets/modelo_2.png";
 import modelo3 from "../../../../assets/modelo_3.png";
 import modelo4 from "../../../../assets/modelo_4.png";
-import Header from './Header';
+import CabecalhoProduto from './CabecalhoProduto';
 
 const imagens = [modelo1, modelo2, modelo3, modelo4];
 const WIDTH = Dimensions.get('window').width;
 const HEIGHT = Dimensions.get('window').height;
 
-const Carousel = () => {
+const Carrossel = () => {
     const [imagemAtiva, setImagemAtiva] = useState(0);
 
     const handleOnChange = (nativeEvent) => {
@@ -25,7 +25,7 @@ const Carousel = () => {
 
     return (
         <View style={estilos.wrap}>
-            <Header />
+            <CabecalhoProduto />
             <ScrollView
                 onScroll={({ nativeEvent }) => handleOnChange(nativeEvent)}
                 showsHorizontalScrollIndicator={false}
@@ -58,7 +58,7 @@ const Carousel = () => {
     )
 }
 
-export default Carousel;
+export default Carrossel;
 
 const estilos = StyleSheet.create({
     container: {

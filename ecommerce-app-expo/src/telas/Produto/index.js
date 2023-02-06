@@ -1,162 +1,125 @@
 import React, { useContext, useState } from "react";
-import { Image, StyleSheet, View, Text, TouchableOpacity, SafeAreaView } from "react-native";
-import Carousel from "./componentes/Carousel";
+import { Image, SafeAreaView, StyleSheet, Text, TouchableOpacity, View } from "react-native";
+import Carrossel from "./componentes/Carrossel";
+import AntDesignIcon from "react-native-vector-icons/AntDesign";
 import modelo1 from "../../../assets/modelo_1.png";
 import modelo2 from "../../../assets/modelo_2.png";
 import modelo3 from "../../../assets/modelo_3.png";
 import modelo4 from "../../../assets/modelo_4.png";
-import AntDesignIcon from "react-native-vector-icons/AntDesign";
+import BotaoTamanho from "./componentes/BotaoTamanho";
 import { GlobalContext } from "../../contextos/GlobalContext";
 import CompraModal from "../../componentes/CompraModal";
+import CabecalhoProduto from "./componentes/CabecalhoProduto";
+
+const imagens = [modelo1, modelo2, modelo3, modelo4];
 
 const Produto = ({ route }) => {
     const produto = route.params;
 
-    const { id, adicionarItem } = useContext(GlobalContext);
+    const { id, adicionarItemAoCarrinho } = useContext(GlobalContext);
 
-    const [numItens, setNumItens] = useState(1);
     const [tamanho, setTamanho] = useState("P");
-
-    const [modalVisible, setModalVisible] = useState(false);
+    const [numItens, setNumItens] = useState(1);
+    const [imagemAtiva, setImagemAtiva] = useState(0);
 
     const item = {
         id: id,
         produto: produto,
-        quantidade: numItens,
-        tamanho: tamanho
+        tamanho: tamanho,
+        quantidade: numItens
     }
 
-    const decrementarNumItens = (event) => {
-        event.preventDefault();
-        numItens > 1 && setNumItens(numItens - 1);
-    }
-
-    const incrementarNumItens = (event) => {
-        event.preventDefault();
-        setNumItens(numItens + 1);
-    }
+    const [visivel, setVisivel] = useState(false);
 
     return (
         <SafeAreaView>
-            <Carousel />
+            <CabecalhoProduto />
+
+            <Carrossel
+                imagens={imagens}
+                imagemAtiva={imagemAtiva}
+                setImagemAtiva={setImagemAtiva}
+            />
+
             <View style={estilos.tela}>
-                <View style={estilos.secao}>
-                    <TouchableOpacity onPress={() => { }}>
-                        <Image source={modelo1} style={estilos.modelo} />
-                    </TouchableOpacity>
-
-                    <TouchableOpacity onPress={() => { }}>
-                        <Image source={modelo2} style={estilos.modelo} />
-                    </TouchableOpacity>
-
-                    <TouchableOpacity onPress={() => { }}>
-                        <Image source={modelo3} style={estilos.modelo} />
-                    </TouchableOpacity>
-
-                    <TouchableOpacity onPress={() => { }}>
-                        <Image source={modelo4} style={estilos.modelo} />
-                    </TouchableOpacity>
+                <View style={estilos.row}>
+                    {
+                        imagens.map((imagem, index) => {
+                            return (
+                                <TouchableOpacity onPress={() => { }} key={index}>
+                                    <Image
+                                        source={imagem}
+                                        style={(index === imagemAtiva) ? [estilos.miniatura, estilos.miniaturaAtiva] : estilos.miniatura}
+                                    />
+                                </TouchableOpacity>
+                            )
+                        })
+                    }
                 </View>
 
-                <View style={{ flexDirection: "row", alignItems: "center" }}>
-                    <AntDesignIcon name="star" size={20} color="#FDCC0D" />
-                    <Text style={{ fontSize: 18, fontWeight: "bold", marginStart: 5 }}>{produto.nota}</Text>
-                    <Text style={{ color: "#CACACA", marginStart: 5 }}>(85 Reviews)</Text>
+                <View style={estilos.review}>
+                    <AntDesignIcon name="star" size={20} color={"#FDCC0D"} />
+                    <Text style={estilos.nota}>4.9</Text>
+                    <Text style={estilos.quantidadeReviews}>(85 Reviews)</Text>
                 </View>
 
-                <Text style={{ fontSize: 16, marginTop: 10 }}>{produto.nome}</Text>
-                <Text style={{ fontSize: 18, fontWeight: "bold", marginTop: 10 }}>R$ {produto.preco}</Text>
+                <Text style={{ fontSize: 16, marginTop: 10 }}>Camisa de Algodão Regular Fit (Masculina)</Text>
+                <Text style={{ fontSize: 18, fontWeight: "bold", marginTop: 10 }}>R$ 100</Text>
 
                 <Text style={{ fontSize: 16, marginTop: 15 }}>Selecionar Tamanho:</Text>
 
                 <View style={{ flexDirection: "row", marginTop: 15 }}>
-                    <TouchableOpacity
-                        style={
-                            [
-                                estilos.botaoTamanho,
-                                { marginEnd: 10 },
-                                tamanho === 'P' && estilos.botaoSelecionado
-                            ]
-                        }
-                        onPress={() => setTamanho("P")}>
-                        <Text style={{ fontSize: 16 }}>P</Text>
-                    </TouchableOpacity>
-
-                    <TouchableOpacity
-                        style={
-                            [
-                                estilos.botaoTamanho,
-                                { marginHorizontal: 10 },
-                                tamanho === 'M' && estilos.botaoSelecionado
-                            ]
-                        }
-                        onPress={() => setTamanho("M")}>
-                        <Text style={{ fontSize: 16 }}>M</Text>
-                    </TouchableOpacity>
-
-                    <TouchableOpacity
-                        style={
-                            [
-                                estilos.botaoTamanho,
-                                { marginHorizontal: 10 },
-                                tamanho === 'G' && estilos.botaoSelecionado
-                            ]
-                        }
-                        onPress={() => setTamanho("G")}>
-                        <Text style={{ fontSize: 16 }}>G</Text>
-                    </TouchableOpacity>
-
-                    <TouchableOpacity
-                        style={
-                            [
-                                estilos.botaoTamanho,
-                                { marginHorizontal: 10 },
-                                tamanho === 'GG' && estilos.botaoSelecionado
-                            ]
-                        }
-                        onPress={() => setTamanho("GG")}>
-                        <Text style={{ fontSize: 16 }}>GG</Text>
-                    </TouchableOpacity>
+                    <BotaoTamanho label={"P"} tamanho={tamanho} setTamanho={setTamanho} />
+                    <BotaoTamanho label={"M"} tamanho={tamanho} setTamanho={setTamanho} />
+                    <BotaoTamanho label={"G"} tamanho={tamanho} setTamanho={setTamanho} />
+                    <BotaoTamanho label={"GG"} tamanho={tamanho} setTamanho={setTamanho} />
                 </View>
 
-                <View style={{ flexDirection: "row", alignItems: 'center', justifyContent: "space-between", marginTop: 25 }}>
-                    <View style={estilos.botao}>
-                        <View style={{ flexDirection: "row", alignItems: 'center' }}>
+                <View style={[estilos.row, { alignItems: "center", marginTop: 25 }]}>
+                    <View style={estilos.quantidadeItem}>
+                        <View style={{ flexDirection: "row", alignItems: "center" }}>
                             <TouchableOpacity
-                                style={[estilos.botaoNumItens, { marginHorizontal: 10 }]}
-                                onPress={decrementarNumItens}
+                                onPress={() => {
+                                    if (numItens > 1) {
+                                        setNumItens(numItens - 1)
+                                    }
+                                }}
+                                style={estilos.botaoNumItens}
                             >
-                                <AntDesignIcon name="minus" size={15} color="#000000" />
+                                <AntDesignIcon name="minus" size={15} color={"#000"} />
                             </TouchableOpacity>
 
                             <Text style={{ fontSize: 20, fontWeight: "bold" }}>{numItens}</Text>
 
                             <TouchableOpacity
-                                style={[estilos.botaoNumItens, { marginHorizontal: 10 }]}
-                                onPress={incrementarNumItens}
+                                onPress={() => { setNumItens(numItens + 1) }}
+                                style={estilos.botaoNumItens}
                             >
-                                <AntDesignIcon name="plus" size={15} color="#000000" />
+                                <AntDesignIcon name="plus" size={15} color={"#000"} />
                             </TouchableOpacity>
                         </View>
                     </View>
 
-                    <CompraModal
-                        mensagem={"Item adicionado ao carrinho!"}
-                        botao={{ texto: "Adicionar novo item", redirectTo: "Loja" }}
-                        modalVisible={modalVisible}
-                        setModalVisible={setModalVisible}
-                    />
-
                     <TouchableOpacity
-                        style={estilos.botaoAddCarrinho}
                         onPress={() => {
-                            setModalVisible(true)
-                            adicionarItem(item, true)
-                        }}>
-                        <Text style={estilos.textoBotaoAddCarrinho}>Adicionar ao Carrinho</Text>
+                            adicionarItemAoCarrinho(item)
+                            setVisivel(true)
+                        }}
+                        style={estilos.botaoCarrinho}>
+                        <Text style={estilos.textoBotaoCarrinho}>Adicionar ao Carrinho</Text>
                     </TouchableOpacity>
                 </View>
             </View>
+
+            <CompraModal
+                visivel={visivel}
+                setVisivel={setVisivel}
+                texto={"Item adicionado ao carrinho!"}
+                botao={{
+                    texto: "Adicionar novo item",
+                    link: "Loja"
+                }}
+            />
         </SafeAreaView>
     )
 }
@@ -167,40 +130,59 @@ const estilos = StyleSheet.create({
     tela: {
         margin: 25
     },
-    secao: {
+    botao: {
+        backgroundColor: "#fff",
+        padding: 5,
+        borderRadius: 10,
+        alignItems: "center",
+        justifyContent: "center"
+    },
+    row: {
         flexDirection: "row",
         justifyContent: "space-between",
+        width: "100%",
         marginBottom: 15
     },
-    modelo: {
+    miniatura: {
         borderRadius: 5,
         borderWidth: 2,
-        borderColor: "#FFA959",
+        borderColor: "#CACACA",
         width: 80,
         height: 80,
         marginBottom: 15
     },
-    botao: {
+    miniaturaAtiva: {
+        borderColor: "#FFA959",
+    },
+    review: {
+        flexDirection: "row",
+        alignItems: "center"
+    },
+    nota: {
+        fontSize: 18,
+        fontWeight: "bold",
+        marginStart: 5
+    },
+    quantidadeReviews: {
+        marginStart: 5,
+        color: "#CACACA"
+    },
+    quantidadeItem: {
         borderWidth: 1,
         borderColor: "#D9D9D9",
         borderRadius: 5,
         padding: 10,
         backgroundColor: "#D9D9D9"
     },
-    botaoTamanho: {
-        borderWidth: 1,
-        borderColor: "#CACACA",
-        borderRadius: 5,
-        padding: 20
-    },
     botaoNumItens: {
         borderWidth: 1,
         borderColor: "#CACACA",
         borderRadius: 5,
-        padding: 10,
-        backgroundColor: "#FFFFFF"
+        backgroundColor: "#fff",
+        marginHorizontal: 10,
+        padding: 10
     },
-    botaoAddCarrinho: {
+    botaoCarrinho: {
         backgroundColor: "#FF7A00",
         padding: 10,
         alignSelf: "stretch",
@@ -209,15 +191,10 @@ const estilos = StyleSheet.create({
         borderWidth: 1,
         borderColor: "#FF7A00",
         width: 180,
-        marginStart: 20
     },
-    textoBotaoAddCarrinho: {
+    textoBotaoCarrinho: {
         textAlign: "center",
-        color: "#FFFFFF",
+        color: "#fff",
         fontWeight: "bold"
-    },
-    botaoSelecionado: {
-        backgroundColor: "#FFA959",
-        borderColor: "#FFA959"
     }
 })

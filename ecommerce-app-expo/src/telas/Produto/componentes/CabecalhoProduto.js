@@ -4,7 +4,7 @@ import { StyleSheet, View, TouchableOpacity } from "react-native";
 import AntDesignIcon from "react-native-vector-icons/AntDesign";
 import IoniconsIcon from "react-native-vector-icons/Ionicons";
 
-const Header = () => {
+const CabecalhoProduto = () => {
     const navigation = useNavigation();
 
     return (
@@ -20,7 +20,7 @@ const Header = () => {
     )
 }
 
-export default Header;
+export default CabecalhoProduto;
 
 const estilos = StyleSheet.create({
     container: {
