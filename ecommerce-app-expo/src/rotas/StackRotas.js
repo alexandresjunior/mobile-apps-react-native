@@ -1,5 +1,5 @@
 import React from "react";
-import TelaPrincipal from "../telas/TelaPrincipal";
+import TelaInicial from "../telas/TelaInicial";
 import SignIn from "../telas/SignIn";
 import Carrinho from "../telas/Carrinho";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
@@ -11,10 +11,10 @@ const Stack = createNativeStackNavigator();
 const StackRotas = () => {
     return (
         <Stack.Navigator
-            initialRouteName="Tela Principal"
+            initialRouteName="Tela Inicial"
             screenOptions={{ headerShown: false }}
         >
-            <Stack.Screen name="Tela Principal" component={TelaPrincipal} />
+            <Stack.Screen name="Tela Inicial" component={TelaInicial} />
             <Stack.Screen name="Sign In" component={SignIn} />
             <Stack.Screen name="Tab Rotas" component={TabRotas} />
             <Stack.Screen name="Produto" component={Produto} />

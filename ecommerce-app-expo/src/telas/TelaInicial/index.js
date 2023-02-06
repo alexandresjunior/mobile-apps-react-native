@@ -1,29 +1,41 @@
 import React from "react";
 import { Image, StyleSheet, View, Text, TouchableOpacity } from "react-native";
-import img from "../../../assets/tela_principal.png";
+import imagem from "../../../assets/tela_principal.png";
 import { useNavigation } from '@react-navigation/native';
 
-const TelaPrincipal = () => {
+const TelaInicial = () => {
     const navigation = useNavigation();
 
     return (
         <View>
-            <Image source={img} style={estilos.imagem} />
+            <Image source={imagem} style={estilos.imagem} />
 
-            <Text style={estilos.titulo}>Todas as suas compras num só app!</Text>
-            <Text style={estilos.subtitulo}>Venda seus produtos da maneira mais inteligente e rápida para obter dinheiro imediato e uma consciência mais limpa.</Text>
+            <Text style={estilos.titulo}>
+                Todas as suas compras num só app!
+            </Text>
+            <Text style={estilos.subtitulo}>
+                Venda seus produtos da maneira mais inteligente e rápida para obter dinheiro imediato e uma consciência mais limpa.
+            </Text>
 
             <View style={estilos.botoes}>
-                <TouchableOpacity style={estilos.botaoLogIn} onPress={() => { navigation.navigate('Sign In') }}>
-                    <Text style={estilos.textoBotaoLogIn}>Log In</Text>
+                <TouchableOpacity
+                    style={estilos.botaoSignIn}
+                    onPress={() => { navigation.navigate('Sign In') }}
+                >
+                    <Text style={estilos.textoBotaoSignIn}>Sign In</Text>
                 </TouchableOpacity>
-                <TouchableOpacity style={estilos.botaoSignUp} onPress={() => { navigation.navigate('Sign In') }}>
+                <TouchableOpacity
+                    style={estilos.botaoSignUp}
+                    onPress={() => { navigation.navigate('Sign In') }}
+                >
                     <Text style={estilos.textoBotaoSignUp}>Sign Up</Text>
                 </TouchableOpacity>
             </View>
         </View>
     )
 }
+
+export default TelaInicial;
 
 const estilos = StyleSheet.create({
     imagem: {
@@ -46,7 +58,7 @@ const estilos = StyleSheet.create({
         flexDirection: "row",
         justifyContent: 'space-between'
     },
-    botaoLogIn: {
+    botaoSignIn: {
         backgroundColor: "#FF7A00",
         padding: 10,
         borderRadius: 5,
@@ -55,7 +67,7 @@ const estilos = StyleSheet.create({
         width: 170,
         marginStart: 25
     },
-    textoBotaoLogIn: {
+    textoBotaoSignIn: {
         textAlign: "center",
         color: "#FFFFFF",
         fontWeight: "bold"
@@ -75,5 +87,3 @@ const estilos = StyleSheet.create({
         fontWeight: "bold"
     }
 })
-
-export default TelaPrincipal;
