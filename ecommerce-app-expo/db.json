@@ -1,0 +1,74 @@
+{
+    "produtos": [
+        {
+            "id": 1,
+            "nome": "Camisa Longa Branca",
+            "preco": 100,
+            "review": 4.9
+        },
+        {
+            "id": 2,
+            "nome": "Camisa Longa Branca",
+            "preco": 100,
+            "review": 4.9
+        },
+        {
+            "id": 3,
+            "nome": "Camisa Longa Branca",
+            "preco": 100,
+            "review": 4.9
+        },
+        {
+            "id": 4,
+            "nome": "Camisa Longa Branca",
+            "preco": 100,
+            "review": 4.9
+        }
+    ],
+    "anuncios": [
+        {
+            "id": 1,
+            "titulo": "Troque e Economize",
+            "descricao": "Desfrute de uma ótima economia",
+            "textoBotao": "Saiba Mais"
+        },
+        {
+            "id": 2,
+            "titulo": "Curso React JS",
+            "descricao": "Segundas e Quartas",
+            "textoBotao": "Matricule-se"
+        },
+        {
+            "id": 3,
+            "titulo": "Curso Java Experience",
+            "descricao": "Depois do Carnaval",
+            "textoBotao": "Matricule-se"
+        }
+    ],
+    "ofertas": [
+        {
+            "id": 1,
+            "imagem": "oferta_1.png",
+            "legenda": "Liquidação",
+            "desconto": "50%"
+        },
+        {
+            "id": 2,
+            "imagem": "oferta_2.png",
+            "legenda": "Saldão",
+            "desconto": "30%"
+        },
+        {
+            "id": 3,
+            "imagem": "oferta_1.png",
+            "legenda": "Outlet",
+            "desconto": "40%"
+        },
+        {
+            "id": 4,
+            "imagem": "oferta_2.png",
+            "legenda": "Relâmpago",
+            "desconto": "70%"
+        }
+    ]
+}

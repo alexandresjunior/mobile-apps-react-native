@@ -1,9 +1,11 @@
 import axios from "axios";
 
-// Link to Postman Mock Server
-
 const api = axios.create({
+    // Link to Postman Mock Server
     baseURL: "https://7a46adff-85b1-4880-887d-5a952916d127.mock.pstmn.io"
+    
+    // Link to JSON Server (trocar 'localhost' pelo IP da máquina)
+    // baseURL: "http://localhost:5000"
 });
 
 export const obterAnuncios = async (url, setAnuncios) => {
