@@ -31,13 +31,17 @@ const Item = ({ item }) => {
                     <View style={estilos.conteudo}>
                         <TouchableOpacity
                             style={[estilos.botaoNumItens, { marginHorizontal: 10 }]}
-                            onPress={() => { atualizarItem(item) }}>
+                            onPress={() => { atualizarItem(item) }}
+                        >
                             <AntDesignIcon name="minus" size={15} color="#000000" />
                         </TouchableOpacity>
 
                         <Text style={{ fontSize: 20, fontWeight: "bold" }}>{item.quantidade}</Text>
 
-                        <TouchableOpacity style={[estilos.botaoNumItens, { marginStart: 10 }]} onPress={() => atualizarItem(item)}>
+                        <TouchableOpacity
+                            style={[estilos.botaoNumItens, { marginStart: 10 }]}
+                            onPress={() => atualizarItem(item)}
+                        >
                             <AntDesignIcon name="plus" size={15} color="#000000" />
                         </TouchableOpacity>
                     </View>

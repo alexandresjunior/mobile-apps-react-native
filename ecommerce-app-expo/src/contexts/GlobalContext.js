@@ -13,7 +13,9 @@ export const InfoProvider = ({ children }) => {
     }
 
     const removerItem = (item) => {
-        const lista = itens.filter((_, index) => index !== item.id);
+        console.log(item.id)
+        const lista = itens.filter((_, index) => index != item.id);
+        console.log(lista)
         setItens(lista);
     }
 
