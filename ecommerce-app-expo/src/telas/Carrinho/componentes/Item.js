@@ -12,8 +12,8 @@ const Item = ({ item }) => {
         <View style={estilos.container}>
             <Image source={modelo} style={estilos.imagem} />
 
-            <View>
-                <View style={[estilos.row, { width: 220 }]}>
+            <View style={{ flex: 1 }}>
+                <View style={estilos.row}>
                     <Text style={estilos.titulo}>{item.produto.nome}</Text>
 
                     <TouchableOpacity onPress={() => removerItemDoCarrinho(item)}>
@@ -24,19 +24,12 @@ const Item = ({ item }) => {
                 <Text style={estilos.tamanho}>Tamanho: {item.tamanho}</Text>
 
                 <View style={estilos.row}>
-                    <Text style={estilos.preco}>R$ {item.produto.preco}</Text>
-
-                    <View style={estilos.row}>
-                        <TouchableOpacity onPress={() => { }} style={estilos.botao}>
-                            <AntDesignIcon name="minus" size={15} color="#000" />
-                        </TouchableOpacity>
-
-                        <Text style={estilos.quantidade}>{item.quantidade}</Text>
-
-                        <TouchableOpacity onPress={() => { }} style={estilos.botao}>
-                            <AntDesignIcon name="plus" size={15} color="#000" />
-                        </TouchableOpacity>
-                    </View>
+                    <Text style={estilos.quantidade}>Preço: R$ {item.produto.preco}</Text>
+                    <Text style={estilos.quantidade}>x {item.quantidade} Unidades</Text>
+                </View>
+                <View style={estilos.row}>
+                    <Text style={estilos.titulo}>Total: </Text>
+                    <Text style={estilos.preco}>R$ {item.produto.preco * item.quantidade}</Text>
                 </View>
             </View>
         </View>
@@ -59,13 +52,13 @@ const estilos = StyleSheet.create({
         shadowOpacity: 0.20,
         shadowRadius: 1.41,
         elevation: 2,
-        padding: 20,
-        justifyContent: "space-between",
+        padding: 15,
         alignItems: "center"
     },
     imagem: {
         width: 90,
-        height: 90
+        height: 90,
+        marginEnd: 15
     },
     row: {
         flexDirection: "row",
@@ -73,11 +66,11 @@ const estilos = StyleSheet.create({
         alignItems: "center",
     },
     titulo: {
-        fontSize: 14
+        fontSize: 16
     },
     tamanho: {
-        fontSize: 12,
-        marginTop: 10
+        fontSize: 14,
+        marginTop: 5
     },
     preco: {
         fontSize: 18,
@@ -91,8 +84,7 @@ const estilos = StyleSheet.create({
         backgroundColor: "#fff"
     },
     quantidade: {
-        fontSize: 20,
-        fontWeight: "bold",
-        marginHorizontal: 10
+        fontSize: 14,
+        color: "#CACACA"
     }
 })
