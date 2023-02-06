@@ -2,7 +2,7 @@ import React from "react";
 import { Image, StyleSheet, View, Text, TouchableOpacity } from "react-native";
 import imagem from "../../../assets/cosmeticos.png";
 
-const PromoCard = () => {
+const CartaoPromocao = () => {
     return (
         <View style={estilos.container}>
             <Text style={estilos.titulo}>Obtenha R$ 100 OFF</Text>
@@ -19,7 +19,7 @@ const PromoCard = () => {
     )
 }
 
-export default PromoCard;
+export default CartaoPromocao;
 
 const estilos = StyleSheet.create({
     container: {

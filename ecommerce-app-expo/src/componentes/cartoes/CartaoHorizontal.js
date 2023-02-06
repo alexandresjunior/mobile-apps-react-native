@@ -1,7 +1,7 @@
 import React from "react";
 import { Image, StyleSheet, View, Text, TouchableOpacity } from "react-native";
 
-const HorizontalCard = ({ titulo, texto, imagem }) => {
+const CartaoHorizontal = ({ titulo, texto, imagem }) => {
     return (
         <View style={estilos.container}>
             <View style={estilos.conteudo}>
@@ -20,7 +20,7 @@ const HorizontalCard = ({ titulo, texto, imagem }) => {
     )
 }
 
-export default HorizontalCard;
+export default CartaoHorizontal;
 
 const estilos = StyleSheet.create({
     container: {

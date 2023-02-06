@@ -1,7 +1,7 @@
 import React from "react";
 import { Image, StyleSheet, TouchableOpacity } from "react-native";
 
-const VerticalCard = ({ imagem }) => {
+const CartaoVertical = ({ imagem }) => {
     return (
         <TouchableOpacity onPress={() => { }}>
             <Image source={imagem} style={estilos.imagem} />
@@ -9,7 +9,7 @@ const VerticalCard = ({ imagem }) => {
     )
 }
 
-export default VerticalCard;
+export default CartaoVertical;
 
 const estilos = StyleSheet.create({
     imagem: {

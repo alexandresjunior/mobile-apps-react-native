@@ -1,49 +1,57 @@
 import { useNavigation } from "@react-navigation/native";
-import React from "react";
+import React, { useContext } from "react";
 import { Modal, StyleSheet, Text, TouchableOpacity, View } from "react-native";
+import { GlobalContext } from "../context/GlobalContext";
 
-const CompraModal = ({ mensagem, botao, modalVisible, setModalVisible }) => {
+const CompraModal = ({ visivel, setVisivel, texto, botao, finalizarCompra }) => {
     const navigation = useNavigation();
 
+    const { esvaziarCarrinho } = useContext(GlobalContext);
+
     return (
-        <View style={styles.centeredView}>
+        <View style={estilos.container}>
             <Modal
                 animationType="fade"
                 transparent={true}
-                visible={modalVisible}
-                onRequestClose={() => {
-                    setModalVisible(!modalVisible);
-                }}
+                visible={visivel}
+                onRequestClose={() => { setVisivel(false) }}
             >
-                <View style={styles.centeredView}>
-                    <View style={styles.modalView}>
-                        <Text style={styles.modalText}>{mensagem}</Text>
+                <View style={estilos.container}>
+                    <View style={estilos.modal}>
+                        <Text style={estilos.texto}>{texto}</Text>
+
                         <TouchableOpacity
-                            style={[styles.button, styles.buttonClose]}
+                            style={estilos.botao}
                             onPress={() => {
-                                setModalVisible(!modalVisible)
-                                navigation.navigate("Loja")
-                            }}
-                        >
-                            <Text style={styles.textStyle}>{botao.texto}</Text>
+                                setVisivel(false)
+                                navigation.navigate(botao.link)
+                                !!finalizarCompra && esvaziarCarrinho()
+
+                                // if (finalizarCompra) {
+                                //     esvaziarCarrinho()
+                                // }
+                            }}>
+                            <Text style={estilos.textoBotao}>{botao.texto}</Text>
                         </TouchableOpacity>
                     </View>
                 </View>
             </Modal>
         </View>
-    );
-};
+    )
+}
 
-const styles = StyleSheet.create({
-    centeredView: {
+export default CompraModal;
+
+const estilos = StyleSheet.create({
+    container: {
         flex: 1,
         justifyContent: "center",
         alignItems: "center",
         marginTop: 20
     },
-    modalView: {
+    modal: {
         marginHorizontal: 10,
-        backgroundColor: "white",
+        backgroundColor: "#fff",
         borderRadius: 10,
         paddingVertical: 25,
         paddingHorizontal: 35,
@@ -57,24 +65,19 @@ const styles = StyleSheet.create({
         shadowRadius: 4,
         elevation: 5
     },
-    button: {
-        borderRadius: 5,
-        padding: 10,
-        elevation: 2
-    },
-    buttonClose: {
-        backgroundColor: "#FF7A00",
-    },
-    textStyle: {
-        color: "white",
-        fontWeight: "bold",
-        textAlign: "center"
-    },
-    modalText: {
+    texto: {
         marginBottom: 15,
         textAlign: "center",
         fontSize: 16
+    },
+    botao: {
+        borderRadius: 5,
+        padding: 10,
+        backgroundColor: "#FF7A00"
+    },
+    textoBotao: {
+        color: "#fff",
+        fontWeight: "bold",
+        textAlign: "center"
     }
-});
-
-export default CompraModal;
+})

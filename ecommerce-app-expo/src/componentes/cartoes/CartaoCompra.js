@@ -3,7 +3,7 @@ import { View, Text, Image, StyleSheet, TouchableOpacity } from "react-native";
 import AntDesignIcon from "react-native-vector-icons/AntDesign";
 import { useNavigation } from "@react-navigation/native";
 
-const ShopCard = ({ imagem, produto }) => {
+const CartaoCompra = ({ imagem, produto }) => {
     const navigation = useNavigation();
 
     const aoClicarNoProduto = () => {
@@ -38,7 +38,7 @@ const ShopCard = ({ imagem, produto }) => {
     )
 }
 
-export default ShopCard;
+export default CartaoCompra;
 
 const estilos = StyleSheet.create({
     container: {

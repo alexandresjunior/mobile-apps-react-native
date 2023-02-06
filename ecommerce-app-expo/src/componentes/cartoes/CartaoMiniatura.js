@@ -1,7 +1,7 @@
 import React from "react";
 import { Image, StyleSheet, Text, TouchableOpacity } from "react-native";
 
-const MiniCard = ({ imagem, legenda }) => {
+const CartaoMiniatura = ({ imagem, legenda }) => {
     return (
         <TouchableOpacity style={estilos.container} onPress={() => { }}>
             <Image source={imagem} style={estilos.imagem} />
@@ -10,7 +10,7 @@ const MiniCard = ({ imagem, legenda }) => {
     )
 }
 
-export default MiniCard;
+export default CartaoMiniatura;
 
 const estilos = StyleSheet.create({
     container: {

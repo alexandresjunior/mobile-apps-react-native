@@ -1,7 +1,7 @@
 import React from "react";
 import { StyleSheet, View, Text, TouchableOpacity } from "react-native";
 
-const SectionHeader = ({ titulo, link }) => {
+const CabecalhoSecao = ({ titulo, link }) => {
     return (
         <View style={estilos.container}>
             <Text style={estilos.titulo}>{titulo}</Text>
@@ -12,7 +12,7 @@ const SectionHeader = ({ titulo, link }) => {
     )
 }
 
-export default SectionHeader;
+export default CabecalhoSecao;
 
 const estilos = StyleSheet.create({
     container: {
