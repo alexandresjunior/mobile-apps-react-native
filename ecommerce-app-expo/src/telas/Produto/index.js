@@ -16,14 +16,13 @@ const imagens = [modelo1, modelo2, modelo3, modelo4];
 const Produto = ({ route }) => {
     const produto = route.params;
 
-    const { id, adicionarItemAoCarrinho } = useContext(GlobalContext);
+    const { adicionarItemAoCarrinho } = useContext(GlobalContext);
 
     const [tamanho, setTamanho] = useState("P");
     const [numItens, setNumItens] = useState(1);
     const [imagemAtiva, setImagemAtiva] = useState(0);
 
     const item = {
-        id: id,
         produto: produto,
         tamanho: tamanho,
         quantidade: numItens

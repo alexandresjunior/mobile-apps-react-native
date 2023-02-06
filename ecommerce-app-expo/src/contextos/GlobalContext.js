@@ -1,29 +1,41 @@
-import React, { createContext, useState } from "react";
+import React, { createContext, useEffect, useState } from "react";
+import { gerarNovoId, obterItensDoCarrinho, removerLocalmente, salvarLocalmente } from "../local";
 
 export const GlobalContext = createContext({});
 
 export const CarrinhoDeComprasProvider = ({ children }) => {
-    const [id, setId] = useState(1);
     const [itens, setItens] = useState([]);
 
-    const adicionarItemAoCarrinho = (item) => {
-        setItens([...itens, item])
+    useEffect(() => {
+        obterItensDoCarrinho(setItens);
+    }, [])
 
-        setId(id + 1)
+    const adicionarItemAoCarrinho = async (item) => {
+        const id = await gerarNovoId();
+
+        const novoItem = { id: id.toString(), ...item }
+
+        setItens([...itens, novoItem])
+
+        await salvarLocalmente([...itens, novoItem])
     }
 
-    const removerItemDoCarrinho = (item) => {
+    const removerItemDoCarrinho = async (item) => {
         const listaDeItens = itens.filter((elementoDeItens) => elementoDeItens.id !== item.id)
 
         setItens(listaDeItens)
+
+        await salvarLocalmente(listaDeItens)
     }
 
-    const esvaziarCarrinho = () => {
+    const esvaziarCarrinho = async () => {
         setItens([]);
+
+        await removerLocalmente()
     }
 
     return (
-        <GlobalContext.Provider value={{ id, itens, adicionarItemAoCarrinho, removerItemDoCarrinho, esvaziarCarrinho }}>
+        <GlobalContext.Provider value={{ itens, adicionarItemAoCarrinho, removerItemDoCarrinho, esvaziarCarrinho }}>
             {children}
         </GlobalContext.Provider>
     )
