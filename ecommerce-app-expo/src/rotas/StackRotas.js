@@ -10,7 +10,10 @@ const Stack = createNativeStackNavigator();
 
 const StackRotas = () => {
     return (
-        <Stack.Navigator initialRouteName="Tela Principal" screenOptions={{ headerShown: false }}>
+        <Stack.Navigator
+            initialRouteName="Tela Principal"
+            screenOptions={{ headerShown: false }}
+        >
             <Stack.Screen name="Tela Principal" component={TelaPrincipal} />
             <Stack.Screen name="Sign In" component={SignIn} />
             <Stack.Screen name="Tab Rotas" component={TabRotas} />
