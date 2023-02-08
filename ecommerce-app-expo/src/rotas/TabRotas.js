@@ -11,9 +11,7 @@ const Tab = createBottomTabNavigator();
 
 const TabRotas = () => {
 
-    const { itens } = useContext(GlobalContext);
-    let variavel = {}
-    itens.length ? variavel = {tabBarBadge: itens.length} : variavel = {}
+   const notificacao = itens.length > 0 ? {tabBarBadge: itens.length} : {}
 
     return (
         <Tab.Navigator screenOptions={({ route }) => ({
@@ -36,7 +34,7 @@ const TabRotas = () => {
         })}>
             <Tab.Screen name="Home" component={Home} />
             <Tab.Screen name="Loja" component={Loja} />
-            <Tab.Screen name="Carrinho" component={Carrinho} options={ variavel } />
+            <Tab.Screen name="Carrinho" component={Carrinho} options={ notificacao } />
         </Tab.Navigator>
     )
 }
