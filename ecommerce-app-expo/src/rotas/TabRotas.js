@@ -11,7 +11,7 @@ const Tab = createBottomTabNavigator();
 
 const TabRotas = () => {
 
-   const notificacao = itens.length > 0 ? {tabBarBadge: itens.length} : {}
+   let notificacao = itens.length > 0 ? {tabBarBadge: itens.length} : {}
 
     return (
         <Tab.Navigator screenOptions={({ route }) => ({
