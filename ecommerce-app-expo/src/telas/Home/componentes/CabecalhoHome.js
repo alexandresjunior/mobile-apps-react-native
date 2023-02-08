@@ -1,10 +1,13 @@
 import React, { useEffect, useState } from "react";
-import { Image, StyleSheet, View, Text } from "react-native";
+import { Image, StyleSheet, View, Text, TouchableOpacity } from "react-native";
 import usuarioIcone from "../../../../assets/usuario_icone.png";
 import AsyncStorage from "@react-native-async-storage/async-storage";
+import * as ImagePicker from 'expo-image-picker';
 
 const Header = () => {
     const [nome, setNome] = useState("");
+
+    const [icone, setIcone] = useState(usuarioIcone);
 
     const obterDadosLogIn = async () => {
         const jsonValue = await AsyncStorage.getItem("usuario");
@@ -18,7 +21,23 @@ const Header = () => {
 
     useEffect(() => {
         obterDadosLogIn();
+
     }, [])
+
+    const selecionarImagem = async () => {
+        let result = await ImagePicker.launchImageLibraryAsync({
+            allowsEditing: true,
+            allowsMultipleSelection: true,
+            quality: 1,
+        });
+
+        if (!result.canceled) {
+            console.log(result)
+            setIcone(result.assets[0])
+        } else {
+            alert('Você não selecionou nenhuma imagem!');
+        }
+    };
 
     return (
         <View style={estilos.cabecalho}>
@@ -26,7 +45,9 @@ const Header = () => {
                 <Text>Bem vindo,</Text>
                 <Text style={estilos.nome}>{nome}</Text>
             </View>
-            <Image source={usuarioIcone} style={estilos.iconeUsuario} />
+            <TouchableOpacity onPress={selecionarImagem}>
+                <Image source={icone} style={estilos.iconeUsuario} />
+            </TouchableOpacity>
         </View>
     )
 }
@@ -45,6 +66,7 @@ const estilos = StyleSheet.create({
     },
     iconeUsuario: {
         width: 50,
-        height: 50
+        height: 50,
+        borderRadius: 25
     }
 })
