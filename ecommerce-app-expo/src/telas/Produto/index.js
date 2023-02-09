@@ -31,8 +31,6 @@ const Produto = ({ route }) => {
 
     return (
         <SafeAreaView>
-            <CabecalhoProduto />
-
             <Carrossel
                 imagens={imagens}
                 imagemAtiva={imagemAtiva}
