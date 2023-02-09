@@ -10,8 +10,9 @@ import { GlobalContext } from '../contextos/GlobalContext';
 const Tab = createBottomTabNavigator();
 
 const TabRotas = () => {
+    const { itens } = useContext(GlobalContext);
 
-   let notificacao = itens.length > 0 ? {tabBarBadge: itens.length} : {}
+    let notificacao = itens.length > 0 ? { tabBarBadge: itens.length } : {}
 
     return (
         <Tab.Navigator screenOptions={({ route }) => ({
@@ -24,8 +25,8 @@ const TabRotas = () => {
 
                     return <SimpleLineIconsIcon name={iconName} size={size} color={color} />
                 }
-                
-                if (route.name === "Carrinho") {return <IoniconsIcon name={"cart"} size={size} color={color} />}
+
+                if (route.name === "Carrinho") { return <IoniconsIcon name={"cart"} size={size} color={color} /> }
 
                 return <IoniconsIcon name={iconName} size={size} color={color} />
             },
@@ -34,7 +35,7 @@ const TabRotas = () => {
         })}>
             <Tab.Screen name="Home" component={Home} />
             <Tab.Screen name="Loja" component={Loja} />
-            <Tab.Screen name="Carrinho" component={Carrinho} options={ notificacao } />
+            <Tab.Screen name="Carrinho" component={Carrinho} options={notificacao} />
         </Tab.Navigator>
     )
 }

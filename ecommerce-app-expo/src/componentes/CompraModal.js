@@ -1,13 +1,7 @@
-import { useNavigation } from "@react-navigation/native";
-import React, { useContext } from "react";
+import React from "react";
 import { Modal, StyleSheet, Text, TouchableOpacity, View } from "react-native";
-import { GlobalContext } from "../contextos/GlobalContext";
 
-const CompraModal = ({ visivel, setVisivel, texto, botao, finalizarCompra }) => {
-    const navigation = useNavigation();
-
-    const { esvaziarCarrinho } = useContext(GlobalContext);
-
+const CompraModal = ({ visivel, setVisivel, label, botao1, botao2 }) => {
     return (
         <View style={estilos.container}>
             <Modal
@@ -18,20 +12,18 @@ const CompraModal = ({ visivel, setVisivel, texto, botao, finalizarCompra }) => 
             >
                 <View style={estilos.container}>
                     <View style={estilos.modal}>
-                        <Text style={estilos.texto}>{texto}</Text>
+                        <Text style={estilos.label}>{label}</Text>
 
                         <TouchableOpacity
                             style={estilos.botao}
-                            onPress={() => {
-                                setVisivel(false)
-                                navigation.navigate(botao.link)
-                                !!finalizarCompra && esvaziarCarrinho()
+                            onPress={botao1.onPress}>
+                            <Text style={estilos.textoBotao}>{botao1.texto}</Text>
+                        </TouchableOpacity>
 
-                                // if (finalizarCompra) {
-                                //     esvaziarCarrinho()
-                                // }
-                            }}>
-                            <Text style={estilos.textoBotao}>{botao.texto}</Text>
+                        <TouchableOpacity
+                            style={estilos.botaoOutline}
+                            onPress={botao2.onPress}>
+                            <Text style={estilos.textoBotaoOutline}>{botao2.texto}</Text>
                         </TouchableOpacity>
                     </View>
                 </View>
@@ -65,7 +57,7 @@ const estilos = StyleSheet.create({
         shadowRadius: 4,
         elevation: 5
     },
-    texto: {
+    label: {
         marginBottom: 15,
         textAlign: "center",
         fontSize: 16
@@ -73,10 +65,25 @@ const estilos = StyleSheet.create({
     botao: {
         borderRadius: 5,
         padding: 10,
-        backgroundColor: "#FF7A00"
+        backgroundColor: "#FF7A00",
+        alignSelf: "stretch",
     },
     textoBotao: {
         color: "#fff",
+        fontWeight: "bold",
+        textAlign: "center"
+    },
+    botaoOutline: {
+        borderRadius: 5,
+        padding: 10,
+        backgroundColor: "#fff",
+        borderColor: "#FF7A00",
+        borderWidth: 1,
+        marginTop: 10,
+        alignSelf: "stretch",
+    },
+    textoBotaoOutline: {
+        color: "#FF7A00",
         fontWeight: "bold",
         textAlign: "center"
     }

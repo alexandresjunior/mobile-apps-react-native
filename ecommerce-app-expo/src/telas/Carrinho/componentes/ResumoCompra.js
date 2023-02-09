@@ -2,9 +2,12 @@ import React, { useState, useContext, useEffect } from "react";
 import { StyleSheet, View, Text, TouchableOpacity, TextInput } from "react-native";
 import { GlobalContext } from "../../../contextos/GlobalContext";
 import CompraModal from "../../../componentes/CompraModal";
+import { useNavigation } from "@react-navigation/native";
 
 const ResumoCompra = () => {
-    const { itens } = useContext(GlobalContext);
+    const { itens, esvaziarCarrinho } = useContext(GlobalContext);
+
+    const navigation = useNavigation();
 
     const [subtotal, setSubtotal] = useState(0);
 
@@ -26,6 +29,12 @@ const ResumoCompra = () => {
     let total = subtotal - voucher + taxaDeEntrega;
 
     const [visivel, setVisivel] = useState(false);
+
+    const finalizarCompra = () => {
+        setVisivel(false)
+        navigation.navigate("Home")
+        esvaziarCarrinho()
+    }
 
     return (
         <View>
@@ -72,12 +81,16 @@ const ResumoCompra = () => {
             <CompraModal
                 visivel={visivel}
                 setVisivel={setVisivel}
-                texto={"Compra finalizada!"}
-                botao={{
-                    texto: "Fechar",
-                    link: "Home"
+                label={"Compra finalizada!"}
+                botao1={{
+                    texto: "Imprimir Nota Fiscal",
+                    onPress: () => { }
                 }}
-                finalizarCompra={true}
+                botao2={{
+                    texto: "Fechar",
+                    onPress: finalizarCompra
+                }}
+
             />
         </View>
     )

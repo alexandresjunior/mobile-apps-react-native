@@ -6,11 +6,14 @@ import BotaoTamanho from "./componentes/BotaoTamanho";
 import { GlobalContext } from "../../contextos/GlobalContext";
 import CompraModal from "../../componentes/CompraModal";
 import CabecalhoProduto from "./componentes/CabecalhoProduto";
+import { useNavigation } from "@react-navigation/native";
 
 const Produto = ({ route }) => {
     const produto = route.params;
 
     const imagens = produto.imagens;
+
+    const navigation = useNavigation();
 
     const { adicionarItemAoCarrinho } = useContext(GlobalContext);
 
@@ -109,10 +112,20 @@ const Produto = ({ route }) => {
             <CompraModal
                 visivel={visivel}
                 setVisivel={setVisivel}
-                texto={"Item adicionado ao carrinho!"}
-                botao={{
-                    texto: "Adicionar novo item",
-                    link: "Loja"
+                label={"Item adicionado ao carrinho!"}
+                botao1={{
+                    texto: "Continuar comprando",
+                    onPress: () => {
+                        navigation.navigate("Loja")
+                        setVisivel(false)
+                    }
+                }}
+                botao2={{
+                    texto: "Concluir compra",
+                    onPress: () => {
+                        navigation.navigate("Carrinho")
+                        setVisivel(false)
+                    }
                 }}
             />
         </SafeAreaView>
