@@ -3,6 +3,7 @@ import { StyleSheet, View, Text, TouchableOpacity, TextInput } from "react-nativ
 import { GlobalContext } from "../../../contextos/GlobalContext";
 import CompraModal from "../../../componentes/CompraModal";
 import { useNavigation } from "@react-navigation/native";
+import { imprimirNotaFiscal } from "../../../templates/NotaFiscal";
 
 const ResumoCompra = () => {
     const { itens, esvaziarCarrinho } = useContext(GlobalContext);
@@ -84,7 +85,10 @@ const ResumoCompra = () => {
                 label={"Compra finalizada!"}
                 botao1={{
                     texto: "Imprimir Nota Fiscal",
-                    onPress: () => { }
+                    onPress: async () => {
+                        await imprimirNotaFiscal(itens, subtotal, voucher, taxaDeEntrega, total)
+                        finalizarCompra()
+                    }
                 }}
                 botao2={{
                     texto: "Fechar",
