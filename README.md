@@ -45,4 +45,5 @@ Ao longo do curso serão abordados os itens acima no decorrer do desenvolvimento
 * [REST APIs com JSON server](https://www.alura.com.br/artigos/react-native-rest-apis-json-server)
 * [AsyncStorage (Deprecated)](https://react-native-async-storage.github.io/async-storage/docs/install/)
 * [Expo SQLite - Documentação Oficial](https://docs.expo.dev/versions/latest/sdk/sqlite/)
+* [Building APKs for Android Devices](https://docs.expo.dev/build-reference/apk/)
 * [Publicar um Aplicativo: o Guia Definitivo](https://usemobile.com.br/publicar-um-aplicativo-o-guia-definitivo/)
