@@ -66,7 +66,7 @@ export const header = `
   <div class="BoxDiv">
 
     <img
-    src="https://res.cloudinary.com/di9oiqvom/image/upload/v1676381918/adaptive-icon-JPEG_yali4e.jpg"
+    src="https://res.cloudinary.com/di9oiqvom/image/upload/v1676381918/Treina%20Recife/adaptive-icon-JPEG_yali4e.jpg"
     style="width: 60px; margin: 20px" />
 
     <div>
