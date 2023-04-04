@@ -17,6 +17,7 @@ const Anuncios = ({ anuncios }) => {
                         <CartaoHorizontal
                             titulo={anuncio.titulo}
                             texto={anuncio.texto}
+                            textoBotao={anuncio.textoBotao}
                             imagem={imagem}
                             key={index}
                         />

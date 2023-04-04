@@ -136,7 +136,7 @@ const estilos = StyleSheet.create({
         borderColor: "#CACACA",
         borderWidth: 1,
         padding: 10,
-
+        backgroundColor: "#fff"
     },
     botaoLogIn: {
         backgroundColor: "#FF7A00",

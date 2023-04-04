@@ -1,7 +1,7 @@
 import React from "react";
 import { Image, StyleSheet, View, Text, TouchableOpacity } from "react-native";
 
-const CartaoHorizontal = ({ titulo, texto, imagem }) => {
+const CartaoHorizontal = ({ titulo, texto, textoBotao, imagem }) => {
     return (
         <View style={estilos.container}>
             <View style={estilos.conteudo}>
@@ -10,7 +10,7 @@ const CartaoHorizontal = ({ titulo, texto, imagem }) => {
                     <Text style={estilos.texto}>{texto}</Text>
 
                     <TouchableOpacity style={estilos.botao} onPress={() => { }}>
-                        <Text style={estilos.textoBotao}>Saiba Mais</Text>
+                        <Text style={estilos.textoBotao}>{textoBotao}</Text>
                     </TouchableOpacity>
                 </View>
 

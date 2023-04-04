@@ -5,13 +5,22 @@ import AntDesignIcon from "react-native-vector-icons/AntDesign";
 import BotaoTamanho from "./componentes/BotaoTamanho";
 import { GlobalContext } from "../../contextos/GlobalContext";
 import CompraModal from "../../componentes/CompraModal";
-import CabecalhoProduto from "./componentes/CabecalhoProduto";
 import { useNavigation } from "@react-navigation/native";
+
+import modelo1 from "../../../assets/modelo_1.png";
+import modelo2 from "../../../assets/modelo_2.png";
+import modelo3 from "../../../assets/modelo_3.png";
+import modelo4 from "../../../assets/modelo_4.png";
 
 const Produto = ({ route }) => {
     const produto = route.params;
 
-    const imagens = produto.imagens;
+    const imagens = [
+        modelo1,
+        modelo2,
+        modelo3,
+        modelo4
+    ];
 
     const navigation = useNavigation();
 
